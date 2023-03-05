@@ -1,0 +1,8 @@
+# Cartelle
+.vscode/
+.vs/
+
+# File autogenerati
+*.csproj
+*.unityproj
+*.sln
