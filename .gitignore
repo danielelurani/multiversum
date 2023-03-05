@@ -1,6 +1,10 @@
 # Cartelle
 .vscode/
 .vs/
+Library/
+Logs/
+UserSettings/
+
 
 # File autogenerati
 *.csproj
