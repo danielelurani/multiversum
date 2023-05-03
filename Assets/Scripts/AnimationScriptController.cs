@@ -18,14 +18,53 @@ public class AnimationScriptController : MonoBehaviour
     void Update()
     {
 
-        bool isMoving = animator.GetBool("isMoving");
-        
+        bool isGoingForward = animator.GetBool("isGoingForward");
+        bool isGoingLeft = animator.GetBool("isGoingLeft");
+        bool isGoingRight = animator.GetBool("isGoingRight");
+        bool isGoingBackward = animator.GetBool("isGoingBackward");
+
+        // animazione senza armi per andare avanti
         if(Input.GetKey("w")){
-            animator.SetBool("isMoving", true);
+            animator.SetBool("isGoingForward", true);
 
-        } else {
+        } 
+        
+        if(!Input.GetKey("w")){
 
-            animator.SetBool("isMoving", false);
+            animator.SetBool("isGoingForward", false);
+        }
+
+        // animazione senza armi per andare a sinistra
+        if(Input.GetKey("a")){
+            animator.SetBool("isGoingLeft", true);
+
+        } 
+        
+        if(!Input.GetKey("a")){
+
+            animator.SetBool("isGoingLeft", false);
+        }
+
+        // animazione senza armi per andare a destra
+        if(Input.GetKey("d")){
+            animator.SetBool("isGoingRight", true);
+
+        } 
+        
+        if(!Input.GetKey("d")){
+
+            animator.SetBool("isGoingRight", false);
+        }
+
+        // animazione senza armi per andare indietro
+        if(Input.GetKey("s")){
+            animator.SetBool("isGoingBackward", true);
+
+        } 
+        
+        if(!Input.GetKey("s")){
+
+            animator.SetBool("isGoingBackward", false);
         }
     }
 }
