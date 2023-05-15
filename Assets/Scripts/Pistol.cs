@@ -6,9 +6,13 @@ public class Pistol : MonoBehaviour
     // variabili per caratteristiche della pistola
     public float damage = 10f;
     public float range = 100f;
+    public float fireRate = 15f;
+
+    private float nextShoot = 0f;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
+    public Camera fpsCamera;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -17,8 +21,9 @@ public class Pistol : MonoBehaviour
     void Update(){
 
         // azione di sparo
-        if(Input.GetButtonDown("Fire1")){
+        if(Input.GetButtonDown("Fire1") && Time.time >= nextShoot){
 
+            nextShoot = Time.time + 1f / fireRate;
             Shoot();
         }
     }
@@ -32,7 +37,7 @@ public class Pistol : MonoBehaviour
 
         // si spara dalla posizione della camera, nella direzione della camera, vengono prese le informazioni necessarie, definito il range
         // il metodo ritorna un booleano, se si è colpito qualcosa o meno
-        if(Physics.Raycast(muzzle.transform.position, muzzle.transform.forward, out hitInfo, range)){
+        if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hitInfo, range)){
             
             Debug.Log(hitInfo.transform.name);
 
@@ -43,7 +48,11 @@ public class Pistol : MonoBehaviour
                 enemyHitted.TakeDamage(damage);
             }
 
-            Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            // effetto di impatto del proiettile
+            GameObject impactedBullet = Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            
+            // distruggo i proiettili impattati
+            Destroy(impactedBullet, 2f);
         }
     }
 }
