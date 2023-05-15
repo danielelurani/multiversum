@@ -34,6 +34,13 @@ public class Pistol : MonoBehaviour
         if(Physics.Raycast(muzzle.transform.position, muzzle.transform.forward, out hitInfo, range)){
             
             Debug.Log(hitInfo.transform.name);
+
+            Enemy enemyHitted = hitInfo.transform.GetComponent<Enemy>();
+
+            if(enemyHitted != null){
+
+                enemyHitted.TakeDamage(damage);
+            }
         }
     }
 }
