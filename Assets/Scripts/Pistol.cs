@@ -11,6 +11,7 @@ public class Pistol : MonoBehaviour
     public Transform muzzle;
 
     public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     // Update is called once per frame
     void Update(){
@@ -41,6 +42,8 @@ public class Pistol : MonoBehaviour
 
                 enemyHitted.TakeDamage(damage);
             }
+
+            Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
         }
     }
 }
