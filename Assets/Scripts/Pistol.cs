@@ -52,7 +52,7 @@ public class Pistol : MonoBehaviour
             GameObject impactedBullet = Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
             
             // distruggo i proiettili impattati
-            Destroy(impactedBullet, 2f);
+            Destroy(impactedBullet, 0.1f);
         }
     }
 }
