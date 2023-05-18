@@ -15,7 +15,8 @@ public class Pistol : MonoBehaviour
     public Camera fpsCamera;
 
     public ParticleSystem muzzleFlash;
-    public GameObject impactEffect;
+    public GameObject impactEffectNoZombies, impactEffectZombies;
+    public GameObject Zombies;
 
     // Update is called once per frame
     void Update(){
@@ -49,10 +50,18 @@ public class Pistol : MonoBehaviour
             }
 
             // effetto di impatto del proiettile
-            GameObject impactedBullet = Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-            
-            // distruggo i proiettili impattati
-            Destroy(impactedBullet, 0.1f);
+            if(enemyHitted != Zombies){
+                
+                GameObject impactedBullet = Instantiate(impactEffectNoZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                // distruggo i proiettili impattati
+                Destroy(impactedBullet, 0.1f);
+            }else{
+                
+                
+                GameObject impactedBullet = Instantiate(impactEffectZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                // distruggo i proiettili impattati
+                Destroy(impactedBullet, 0.1f);
+            }
         }
     }
 }
