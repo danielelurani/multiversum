@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyFollowPlayer : MonoBehaviour
+public class ZombieWalker : MonoBehaviour
 {
 
     public NavMeshAgent enemy;
