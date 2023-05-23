@@ -41,10 +41,15 @@ public class Pistol : MonoBehaviour
             
             Debug.Log(hitInfo.transform.name);
 
-            string enemyHitted = hitInfo.collider.tag;
+            ZombieWalkerHealth enemyHitted = hitInfo.transform.GetComponent<ZombieWalkerHealth>();
 
+            if(enemyHitted != null){
+                enemyHitted.TakeDamage(damage);
+            }
+
+            /*
             // effetto di impatto del proiettile
-            if(enemyHitted == "Enemy"){
+            if(enemyHitted == ZombieWalker){
                 
                 GameObject impactedBullet = Instantiate(impactEffectZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 // distruggo i proiettili impattati
@@ -56,7 +61,8 @@ public class Pistol : MonoBehaviour
                 GameObject impactedBullet = Instantiate(impactEffectNoZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 // distruggo i proiettili impattati
                 Destroy(impactedBullet, 0.1f);
-            }
+                
+            }*/
         }
     }
 }
