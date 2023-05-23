@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: bf23687a0e63fbf46b00ce3b46ec5dc6
+  - enabled: 1
+    path: Assets/Scenes/IndustrialComplex/LevelOne.unity
+    guid: c230124fdf2950b41b9c0c4667b678eb
+  - enabled: 1
+    path: Assets/Scenes/Island/LevelTwo.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/LoadSceneMenu.unity
+    guid: 8d7f27e320ef23f43b24054b6216eff8
   m_configObjects: {}
