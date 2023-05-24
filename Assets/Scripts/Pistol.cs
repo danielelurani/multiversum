@@ -6,24 +6,25 @@ public class Pistol : MonoBehaviour
     // variabili per caratteristiche della pistola
     public float damage = 10f;
     public float range = 100f;
-    public float fireRate = 15f;
-
-    private float nextShoot = 0f;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
     public Camera fpsCamera;
+    private AudioSource pistolAudio;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectNoZombies, impactEffectZombies;
+
+    void Start(){
+
+        pistolAudio = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update(){
 
         // azione di sparo
-        if(Input.GetButtonDown("Fire1") && Time.time >= nextShoot){
-
-            nextShoot = Time.time + 1f / fireRate;
+        if(Input.GetButtonDown("Fire1")){
             Shoot();
         }
     }
@@ -31,6 +32,7 @@ public class Pistol : MonoBehaviour
     void Shoot(){
 
         muzzleFlash.Play();
+        pistolAudio.Play();
 
         // memorizza l'informazione su cosa ho colpito
         RaycastHit hitInfo;
@@ -41,15 +43,13 @@ public class Pistol : MonoBehaviour
             
             Debug.Log(hitInfo.transform.name);
 
-            ZombieWalkerHealth enemyHitted = hitInfo.transform.GetComponent<ZombieWalkerHealth>();
-
-            if(enemyHitted != null){
-                enemyHitted.TakeDamage(damage);
+            var hitBox = hitInfo.transform.GetComponent<ZWHitBox>();
+            if(hitBox){
+                hitBox.OnRaycastHit(this);
             }
 
-            /*
             // effetto di impatto del proiettile
-            if(enemyHitted == ZombieWalker){
+            if(hitInfo.transform.tag == "ZombieHitbox"){
                 
                 GameObject impactedBullet = Instantiate(impactEffectZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 // distruggo i proiettili impattati
@@ -57,12 +57,11 @@ public class Pistol : MonoBehaviour
 
             }else{
                 
-                
                 GameObject impactedBullet = Instantiate(impactEffectNoZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 // distruggo i proiettili impattati
                 Destroy(impactedBullet, 0.1f);
                 
-            }*/
+            }
         }
     }
 }
