@@ -7,7 +7,11 @@ public class ZWHitBox : MonoBehaviour
 
     public ZombieWalkerHealth health;
 
-    public void OnRaycastHit(Pistol pistol){
+    public void OnRaycastHitP(Pistol pistol){
         health.TakeDamage(pistol.damage);
+    }
+
+    public void OnRaycastHitR(Rifle rifle){
+        health.TakeDamage(rifle.damage);
     }
 }

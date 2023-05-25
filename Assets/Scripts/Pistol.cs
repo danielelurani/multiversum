@@ -8,7 +8,9 @@ public class Pistol : MonoBehaviour
     public float range = 100f;
     public float fireRate = 4f;
     public int magazine = 12;
+    public int currentBullets = 12;
     public int maxAmmo = 240;
+    public int currentAmmo = 120;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -19,7 +21,7 @@ public class Pistol : MonoBehaviour
     private AudioSource shootingSound;
     private Animator animator;
     private float time;
-    private int currentBullets = 12;
+    
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectNoZombies, impactEffectZombies;
@@ -47,13 +49,17 @@ public class Pistol : MonoBehaviour
         }
 
         //azione di ricarica
-        if(Input.GetKeyDown(KeyCode.R) && currentBullets < 12){
+        if(Input.GetKeyDown(KeyCode.R) && currentBullets < magazine && currentAmmo > 0){
             Reload();
+
+            // dopo che si preme il tasto "ricarica", bisogna aspettare che sia finita la ricarica prima di sparare ancora
+            time = -2.0f;
         }
     }
 
     void Shoot(){
 
+        // contatore proiettili sparati
         if(currentBullets != 0){
             currentBullets --;
         }
@@ -73,7 +79,7 @@ public class Pistol : MonoBehaviour
 
             var hitBox = hitInfo.transform.GetComponent<ZWHitBox>();
             if(hitBox){
-                hitBox.OnRaycastHit(this);
+                hitBox.OnRaycastHitP(this);
             }
 
             // effetto di impatto del proiettile
@@ -95,9 +101,21 @@ public class Pistol : MonoBehaviour
 
     void Reload(){
 
+        // suono della ricarica
         reloadSound.Play();
-        animator.SetTrigger("RPressed");
-        currentBullets = 12;
 
+        // triggera animazione
+        animator.SetTrigger("RPressed");
+
+        if(currentAmmo < magazine){
+
+            currentAmmo = currentAmmo - (magazine - currentBullets);
+            currentBullets = currentBullets + (magazine - currentBullets);
+        }
+        else{
+
+            currentAmmo = currentAmmo - ( magazine - currentBullets);
+            currentBullets = currentBullets + (magazine - currentBullets);
+        }
     }
 }
