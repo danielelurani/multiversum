@@ -6,33 +6,61 @@ public class Pistol : MonoBehaviour
     // variabili per caratteristiche della pistola
     public float damage = 10f;
     public float range = 100f;
+    public float fireRate = 4f;
+    public int magazine = 12;
+    public int maxAmmo = 240;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
     public Camera fpsCamera;
-    private AudioSource pistolAudio;
+
+    private AudioSource[] pistolSounds;
+    private AudioSource reloadSound;
+    private AudioSource shootingSound;
+    private Animator animator;
+    private float time;
+    private int currentBullets = 12;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectNoZombies, impactEffectZombies;
 
     void Start(){
 
-        pistolAudio = GetComponent<AudioSource>();
+        pistolSounds = GetComponents<AudioSource>();
+        shootingSound = pistolSounds[0];
+        reloadSound = pistolSounds[1];
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update(){
 
+        time += Time.deltaTime;
+
+        float nextTimeToShoot = 1 / fireRate;
+
         // azione di sparo
-        if(Input.GetButtonDown("Fire1")){
+        if(time >= nextTimeToShoot && Input.GetButtonDown("Fire1") && currentBullets > 0){
             Shoot();
+            time = 0.0f;
+        }
+
+        //azione di ricarica
+        if(Input.GetKeyDown(KeyCode.R) && currentBullets < 12){
+            Reload();
         }
     }
 
     void Shoot(){
 
+        if(currentBullets != 0){
+            currentBullets --;
+        }
+        animator.SetTrigger("isShooting");
+
         muzzleFlash.Play();
-        pistolAudio.Play();
+        shootingSound.Play();
 
         // memorizza l'informazione su cosa ho colpito
         RaycastHit hitInfo;
@@ -63,5 +91,13 @@ public class Pistol : MonoBehaviour
                 
             }
         }
+    }
+
+    void Reload(){
+
+        reloadSound.Play();
+        animator.SetTrigger("RPressed");
+        currentBullets = 12;
+
     }
 }
