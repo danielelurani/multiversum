@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLook : MonoBehaviour
 {
-
+    
     public Camera cam;
 
     private float xRotation = 0f;
@@ -13,7 +14,8 @@ public class PlayerLook : MonoBehaviour
     public float xSensitivity = 15f;
     public float ySensitivity = 15f;
 
-    public void ProcessLook(Vector2 input){
+    public void ProcessLook(Vector2 input)
+    {
 
         float mouseX = input.x;
         float mouseY = input.y;
@@ -29,5 +31,5 @@ public class PlayerLook : MonoBehaviour
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
     }
 
-
+   
 }
