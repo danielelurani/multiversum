@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterStats : MonoBehaviour
 
@@ -24,7 +25,7 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
-
+        CheckHealth();
     }
 
     public void CheckHealth()
@@ -33,6 +34,7 @@ public class CharacterStats : MonoBehaviour
         {
             health = 0;
             isDead = true;
+            SceneManager.LoadScene("GameOverScene");
 
         }
 
