@@ -38,22 +38,25 @@ public class Pistol : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
-        time += Time.deltaTime;
+        if(!PauseMenu.isGamePaused){
 
-        float nextTimeToShoot = 1 / fireRate;
+            time += Time.deltaTime;
 
-        // azione di sparo
-        if(time >= nextTimeToShoot && Input.GetButtonDown("Fire1") && currentBullets > 0){
-            Shoot();
-            time = 0.0f;
-        }
+            float nextTimeToShoot = 1 / fireRate;
 
-        //azione di ricarica
-        if(Input.GetKeyDown(KeyCode.R) && currentBullets < magazine && currentAmmo > 0){
-            Reload();
+            // azione di sparo
+            if(time >= nextTimeToShoot && Input.GetButtonDown("Fire1") && currentBullets > 0){
+                Shoot();
+                time = 0.0f;
+            }
 
-            // dopo che si preme il tasto "ricarica", bisogna aspettare che sia finita la ricarica prima di sparare ancora
-            time = -2.0f;
+            //azione di ricarica
+            if(Input.GetKeyDown(KeyCode.R) && currentBullets < magazine && currentAmmo > 0){
+                Reload();
+
+                // dopo che si preme il tasto "ricarica", bisogna aspettare che sia finita la ricarica prima di sparare ancora
+                time = -2.0f;
+            }
         }
     }
 

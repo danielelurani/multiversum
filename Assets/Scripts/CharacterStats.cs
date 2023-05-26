@@ -5,12 +5,12 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 
 {
+
     [SerializeField] protected int health;
     [SerializeField] protected int maxHealth;
-  
-
 
     [SerializeField] protected bool isDead;
+
     public HealthBar healthBar;
 
 
@@ -21,13 +21,12 @@ public class CharacterStats : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         isDead = false;
     }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(20);
-        }
+
     }
+
     public void CheckHealth()
     {
         if(health <= 0)
@@ -41,18 +40,19 @@ public class CharacterStats : MonoBehaviour
         {
             health = maxHealth;
         }
-
     }
 
     public void Die()
     {
         isDead = true;
     }
+
     public void SetHealthTo (int healthToSetTo)
     {
         health = healthToSetTo;
 
     }
+
     public void TakeDamage (int damage)
     {
         health = health - damage;
@@ -63,6 +63,4 @@ public class CharacterStats : MonoBehaviour
     { 
      int healthAfterHeal = health + heal;
     }
-
-    
 }

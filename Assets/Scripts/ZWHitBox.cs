@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ZWHitBox : MonoBehaviour
 {
-
     public ZombieWalkerHealth health;
 
     public void OnRaycastHitP(Pistol pistol){
