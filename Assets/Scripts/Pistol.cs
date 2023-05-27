@@ -11,6 +11,7 @@ public class Pistol : MonoBehaviour
     public int currentBullets = 12;
     public int maxAmmo = 240;
     public int currentAmmo = 120;
+    public float spread = 0.01f;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -31,6 +32,10 @@ public class Pistol : MonoBehaviour
         pistolSounds = GetComponents<AudioSource>();
         shootingSound = pistolSounds[0];
         reloadSound = pistolSounds[1];
+
+        // quando starta il gioco disattivo i suoni delle armi, altrimenti si attiverebbero
+        shootingSound.enabled = false;
+        reloadSound.enabled = false;
 
         animator = GetComponent<Animator>();
     }
@@ -69,14 +74,20 @@ public class Pistol : MonoBehaviour
         animator.SetTrigger("isShooting");
 
         muzzleFlash.Play();
+
+        shootingSound.enabled = true;
         shootingSound.Play();
 
         // memorizza l'informazione su cosa ho colpito
         RaycastHit hitInfo;
 
+        Vector3 shootDirection = fpsCamera.transform.forward;
+        shootDirection.x += Random.Range(-spread, spread);
+        shootDirection.y += Random.Range(-spread, spread);
+
         // si spara dalla posizione della camera, nella direzione della camera, vengono prese le informazioni necessarie, definito il range
         // il metodo ritorna un booleano, se si è colpito qualcosa o meno
-        if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hitInfo, range)){
+        if(Physics.Raycast(fpsCamera.transform.position, shootDirection, out hitInfo, range)){
             
             Debug.Log(hitInfo.transform.name);
 
@@ -105,6 +116,7 @@ public class Pistol : MonoBehaviour
     void Reload(){
 
         // suono della ricarica
+        reloadSound.enabled = true;
         reloadSound.Play();
 
         // triggera animazione

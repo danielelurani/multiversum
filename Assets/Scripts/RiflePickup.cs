@@ -1,28 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RiflePickup : MonoBehaviour
 {
-    public Rifle rifle;
-    public Transform Player, MainCamera, SecondCamera;
+    public EquippingScript equip;
+    public Transform Player;
+    public Text text;
 
-    public float pickUpRange = 10f;
+    public float pickUpRange = 5f;
+
+    void Start(){
+
+        text.enabled = false;
+    }
 
     void Update(){
 
-        Vector3 distanceToPlayer = Player.position - transform.position;
+        float distanceToPlayer = Vector3.Distance(Player.position, transform.position);
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && distanceToPlayer <= pickUpRange)
             PickUp();
-
+        
+        if(distanceToPlayer <= pickUpRange)
+            text.enabled = true;
+        else
+            text.enabled = false;
     }
 
     private void PickUp(){
 
-        transform.SetParent(SecondCamera);
-        transform.localPosition = new Vector3(0.25f, -0.25f, 0.50f);
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = Vector3.one;
+        equip.ActiveSlot2();
     }
+
 }
