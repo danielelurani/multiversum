@@ -6,7 +6,7 @@ public class Rifle : MonoBehaviour
     // variabili per caratteristiche della pistola
     public float damage = 5f;
     public float range = 100f;
-    public float fireRate = 8f;
+    public float fireRate = 12f;
     public int magazine = 30;
     public int currentBullets = 30;
     public int maxAmmo = 300;

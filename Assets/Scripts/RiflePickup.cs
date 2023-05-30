@@ -9,7 +9,7 @@ public class RiflePickup : MonoBehaviour
     public Transform Player;
     public Text text;
 
-    public float pickUpRange = 5f;
+    public float pickUpRange = 2f;
 
     void Start(){
 

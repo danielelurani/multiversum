@@ -13,4 +13,8 @@ public class ZWHitBox : MonoBehaviour
     public void OnRaycastHitR(Rifle rifle){
         health.TakeDamage(rifle.damage);
     }
+
+    public void OnRaycastHitS(Shotgun shotgun){
+        health.TakeDamage(shotgun.damage);
+    }
 }

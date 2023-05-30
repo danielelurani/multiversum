@@ -7,6 +7,7 @@ public class EquippingScript : MonoBehaviour
 
     public GameObject slot1;
     public GameObject slot2;
+    public GameObject slot3;
 
     // prendo tutte le fonti audio dagli oggetti passati
     public AudioSource[] audio1;
@@ -14,7 +15,7 @@ public class EquippingScript : MonoBehaviour
 
     private bool isSlot1Active;
     private bool isSlot2Active;
-    //private bool isSlot3Active;
+    private bool isSlot3Active;
     private int slotEquippedATM; // quale slot ho equipaggiato al momento
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class EquippingScript : MonoBehaviour
 
         isSlot1Active = true;
         isSlot2Active = false;
-        //isSlot3Active = false;
+        isSlot3Active = false;
 
         slotEquippedATM = 1;
     }
@@ -40,12 +41,17 @@ public class EquippingScript : MonoBehaviour
         if(Input.GetKeyDown("2") && isSlot2Active){
             Equip2();
         }
+
+        if(Input.GetKeyDown("3") && isSlot3Active){
+            Equip3();
+        }
     }
 
     void Equip1(){
 
         slot1.SetActive(true);
         slot2.SetActive(false);
+        slot3.SetActive(false);
 
         // quando equipaggio l'arma disattivo i suoni, verranno attivati solo nel momento dell'utilizzo effettivo
         foreach(AudioSource audio in audio1){
@@ -59,6 +65,7 @@ public class EquippingScript : MonoBehaviour
         
         slot1.SetActive(false);
         slot2.SetActive(true);
+        slot3.SetActive(false);
 
         // quando equipaggio l'arma disattivo i suoni, verranno attivati solo nel momento dell'utilizzo effettivo
         foreach(AudioSource audio in audio2){
@@ -68,11 +75,29 @@ public class EquippingScript : MonoBehaviour
         slotEquippedATM = 2;
     }
 
+    void Equip3(){
+
+        slot1.SetActive(false);
+        slot2.SetActive(false);
+        slot3.SetActive(true);
+
+        // quando equipaggio l'arma disattivo i suoni, verranno attivati solo nel momento dell'utilizzo effettivo
+        foreach(AudioSource audio in audio1){
+            audio.enabled = false;
+        }
+
+        slotEquippedATM = 3;
+    }
+
     public void ActiveSlot1(){
         isSlot1Active = true;
     }
 
     public void ActiveSlot2(){
         isSlot2Active = true;
+    }
+
+    public void ActiveSlot3(){
+        isSlot3Active = true;
     }
 }
