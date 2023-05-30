@@ -8,7 +8,7 @@ public class ZombieWalkerMovement : MonoBehaviour
     public NavMeshAgent agent;
     public Transform playerTransform;
     
-    private float maxTime = 1.0f;
+    private float maxTime = 0.5f;
     private Animator animator;
     private float distance;
     private float timer = 0.0f;

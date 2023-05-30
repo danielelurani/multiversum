@@ -7,14 +7,19 @@ public class ShotgunPickUp : MonoBehaviour
 {
     private GameObject player;
     private EquippingScript equip;
-    public Text text;
+    private GameObject textObject;
+    private Text text;
 
-    public float pickUpRange = 2f;
+    [SerializeField] private float pickUpRange = 2f;
 
     void Start(){
 
+        // trovo il giocatore ed il suo script necessario
         player = GameObject.Find("Player");
         equip = player.GetComponent<EquippingScript>();
+
+        textObject = GameObject.Find("PickUpText");
+        text = textObject.GetComponent<Text>();
         text.enabled = false;
     }
 

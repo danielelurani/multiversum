@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject zombieWalker;
+    [SerializeField] private GameObject zombieWalker;
+    [SerializeField] private float interval = 1f;
 
-    private float interval = 0.5f;
     private int zombieWalkerCount = 0;
 
     // Start is called before the first frame update

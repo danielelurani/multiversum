@@ -12,6 +12,7 @@ public class Shotgun : MonoBehaviour
     public int maxAmmo = 160;
     public int currentAmmo = 80;
     public float spread = 0.025f;
+    private int bulletPieces = 8;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -22,7 +23,6 @@ public class Shotgun : MonoBehaviour
     private AudioSource shootingSound;
     private Animator animator;
     private float time;
-    private int bulletPieces = 8;
     
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectNoZombies, impactEffectZombies;

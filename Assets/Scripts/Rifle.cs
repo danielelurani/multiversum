@@ -4,14 +4,14 @@ public class Rifle : MonoBehaviour
 {
 
     // variabili per caratteristiche della pistola
-    public float damage = 5f;
-    public float range = 100f;
-    public float fireRate = 12f;
-    public int magazine = 30;
-    public int currentBullets = 30;
-    public int maxAmmo = 300;
-    public int currentAmmo = 150;
-    public float spread = 0.025f;
+    [SerializeField] private float damage = 5f;
+    [SerializeField] private float range = 100f;
+    [SerializeField] private float fireRate = 12f;
+    [SerializeField] private int magazine = 30;
+    [SerializeField] private int currentBullets = 30;
+    [SerializeField] private int maxAmmo = 300;
+    [SerializeField] private int currentAmmo = 150;
+    [SerializeField] private float spread = 0.025f;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -23,7 +23,6 @@ public class Rifle : MonoBehaviour
     private Animator animator;
     private float time;
     
-
     public ParticleSystem muzzleFlash;
     public GameObject impactEffectNoZombies, impactEffectZombies;
 
@@ -131,4 +130,6 @@ public class Rifle : MonoBehaviour
             currentBullets = currentBullets + (magazine - currentBullets);
         }
     }
+
+    public float GetDamageValue(){ return damage;}
 }

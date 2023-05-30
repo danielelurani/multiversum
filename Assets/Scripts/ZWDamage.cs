@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ZWDamage : MonoBehaviour
 {
-
-    public int damage = 20;
+    [SerializeField] private int damage = 20;
 
     private GameObject player;
     private CharacterStats playerStats;
