@@ -5,20 +5,22 @@ using UnityEngine.UI;
 
 public class RiflePickup : MonoBehaviour
 {
-    public EquippingScript equip;
-    public Transform Player;
+    private GameObject player;
+    private EquippingScript equip;
     public Text text;
 
     public float pickUpRange = 2f;
 
     void Start(){
 
+        player = GameObject.Find("Player");
+        equip = player.GetComponent<EquippingScript>();
         text.enabled = false;
     }
 
     void Update(){
 
-        float distanceToPlayer = Vector3.Distance(Player.position, transform.position);
+        float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
         if(Input.GetKeyDown(KeyCode.E) && distanceToPlayer <= pickUpRange)
             PickUp();
@@ -31,7 +33,28 @@ public class RiflePickup : MonoBehaviour
 
     private void PickUp(){
 
-        equip.ActiveSlot2();
+        if(equip.numberOfSlotActive == 1){
+
+            equip.Slot2(true);
+            equip.numberOfSlotActive = 2;
+        }
+        else{
+
+            switch (equip.slotEquippedATM)
+            {
+                case 1:
+                    equip.Slot1(false);
+                    equip.Slot2(true);
+                    equip.Equip2();
+                    break;
+                case 3:
+                    equip.Slot3(false);
+                    equip.Slot2(true);
+                    equip.Equip2();
+                    break;
+                default: break;
+            }
+        }
     }
 
 }

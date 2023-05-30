@@ -7,7 +7,15 @@ public class ZWDamage : MonoBehaviour
 
     public int damage = 20;
 
-    public CharacterStats playerStats;
+    private GameObject player;
+    private CharacterStats playerStats;
+
+    void Start(){
+
+        // prendo l'oggetto player e il suo componente CharacterStats per poi usarlo nella funzione OnTriggerEnter
+        player = GameObject.Find("Player");
+        playerStats = player.GetComponent<CharacterStats>();
+    }
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player")

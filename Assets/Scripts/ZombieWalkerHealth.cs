@@ -6,8 +6,6 @@ public class ZombieWalkerHealth : MonoBehaviour
 {
 
     public float maxHealth = 100f;
-
-    [HideInInspector]
     public float currentHealth;
 
     private Animator animator;

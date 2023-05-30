@@ -17,7 +17,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
-        maxHealth = 200;
+        maxHealth = 100;
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         isDead = false;
