@@ -3,16 +3,16 @@ using UnityEngine;
 public class Shotgun : MonoBehaviour
 {
 
-    // variabili per caratteristiche della pistola
-    public float damage = 5f;
-    public float range = 100f;
-    public float fireRate = 6f;
-    public int magazine = 8;
-    public int currentBullets = 8;
-    public int maxAmmo = 160;
-    public int currentAmmo = 80;
-    public float spread = 0.025f;
-    private int bulletPieces = 8;
+    // variabili per caratteristiche del fucile a pompa
+    [SerializeField] private float damage = 5f;
+    [SerializeField] private float range = 100f;
+    [SerializeField] private float fireRate = 6f;
+    [SerializeField] private int magazine = 8;
+    [SerializeField] private int currentBullets = 8;
+    [SerializeField] private int maxAmmo = 160;
+    [SerializeField] private int currentAmmo = 80;
+    [SerializeField] private float spread = 0.025f;
+    [SerializeField] private int bulletPieces = 8;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -141,4 +141,6 @@ public class Shotgun : MonoBehaviour
             currentBullets = currentBullets + (magazine - currentBullets);
         }
     }
+
+    public float GetDamageValue(){ return damage;}
 }

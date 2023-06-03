@@ -4,14 +4,14 @@ public class Pistol : MonoBehaviour
 {
 
     // variabili per caratteristiche della pistola
-    public float damage = 10f;
-    public float range = 100f;
-    public float fireRate = 4f;
-    public int magazine = 12;
-    public int currentBullets = 12;
-    public int maxAmmo = 240;
-    public int currentAmmo = 120;
-    public float spread = 0.01f;
+    [SerializeField] private float damage = 10f;
+    [SerializeField] private float range = 100f;
+    [SerializeField] private float fireRate = 4f;
+    [SerializeField] private int magazine = 12;
+    [SerializeField] private int currentBullets = 12;
+    [SerializeField] private int maxAmmo = 240;
+    [SerializeField] private int currentAmmo = 120;
+    [SerializeField] private float spread = 0.01f;
 
     // punto dal quale escono i proiettili
     public Transform muzzle;
@@ -139,4 +139,6 @@ public class Pistol : MonoBehaviour
             currentBullets = currentBullets + (magazine - currentBullets);
         }
     }
+
+    public float GetDamageValue(){ return damage;}
 }

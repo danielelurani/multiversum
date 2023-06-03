@@ -14,6 +14,11 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        // carica gli assets necessari per gli zombie
+        zombieWalker = Resources.Load<GameObject>("Prefabs/ZombieWalker");
+        zombieRunner = Resources.Load<GameObject>("Prefabs/ZombieRunner");
+
         StartCoroutine(spawnZW(interval, zombieWalker));
         StartCoroutine(spawnZR(interval, zombieRunner));
     }

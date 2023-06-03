@@ -3,7 +3,7 @@ using UnityEngine;
 public class Rifle : MonoBehaviour
 {
 
-    // variabili per caratteristiche della pistola
+    // variabili per caratteristiche del fucile
     [SerializeField] private float damage = 5f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 12f;
