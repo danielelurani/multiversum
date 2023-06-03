@@ -34,8 +34,13 @@ public class ZWMovement : MonoBehaviour
         animator.SetFloat("Speed", agent.velocity.magnitude);
 
         distance = Vector3.Distance(player.transform.position, transform.position);
+
+        Vector3 directionToTarget = player.transform.position - transform.position;
+        directionToTarget.y = 0f;
         
         if(distance <= 1.6f){
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
             animator.SetBool("Attack", true);
         } else {
             animator.SetBool("Attack", false);

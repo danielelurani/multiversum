@@ -9,7 +9,6 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField] protected int health;
     [SerializeField] protected int maxHealth;
-
     [SerializeField] protected bool isDead;
 
     public HealthBar healthBar;

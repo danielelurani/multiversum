@@ -88,9 +88,15 @@ public class Rifle : MonoBehaviour
             
             Debug.Log(hitInfo.transform.name);
 
-            var hitBox = hitInfo.transform.GetComponent<ZWHitBox>();
-            if(hitBox){
-                hitBox.OnRaycastHitR(this);
+            var hitBoxZW = hitInfo.transform.GetComponent<ZWHitBox>();
+            var hitBoxZR = hitInfo.transform.GetComponent<ZRHitBox>();
+
+            if(hitBoxZW){
+                hitBoxZW.OnRaycastHitR(this);
+            }
+
+            if(hitBoxZR){
+                hitBoxZR.OnRaycastHitR(this);
             }
 
             // effetto di impatto del proiettile
