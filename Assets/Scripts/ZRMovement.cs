@@ -40,9 +40,15 @@ public class ZRMovement : MonoBehaviour
 
         
         if(distance <= 2.3f){
-            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-            transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+
+            if(!animator.GetBool("isDead")){
+
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+            }
+            
             animator.SetBool("Attack", true);
+            
         } else {
             animator.SetBool("Attack", false);
         }

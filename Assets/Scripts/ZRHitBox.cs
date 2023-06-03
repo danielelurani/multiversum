@@ -13,7 +13,7 @@ public class ZRHitBox : MonoBehaviour
     }
 
     public void OnRaycastHitP(Pistol pistol){
-        health.TakeDamage(pistol.damage);
+        health.TakeDamage(pistol.GetDamageValue());
     }
 
     public void OnRaycastHitR(Rifle rifle){
@@ -21,6 +21,6 @@ public class ZRHitBox : MonoBehaviour
     }
 
     public void OnRaycastHitS(Shotgun shotgun){
-        health.TakeDamage(shotgun.damage);
+        health.TakeDamage(shotgun.GetDamageValue());
     }
 }
