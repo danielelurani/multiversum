@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieWalkerMovement : MonoBehaviour
+public class ZWMovement : MonoBehaviour
 { 
-    public NavMeshAgent agent;
-    public Transform playerTransform;
+    private NavMeshAgent agent;
+    private GameObject player;
+    private Animator animator;
     
     private float maxTime = 0.5f;
-    private Animator animator;
     private float distance;
     private float timer = 0.0f;
 
@@ -18,6 +18,7 @@ public class ZombieWalkerMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -25,14 +26,14 @@ public class ZombieWalkerMovement : MonoBehaviour
     {
         timer -= Time.deltaTime;
         if(timer < 0.0f){
-            agent.destination = playerTransform.position;
+            agent.destination = player.transform.position;
             timer = maxTime;
         }
         
         // muoviti verso il giocatore
         animator.SetFloat("Speed", agent.velocity.magnitude);
 
-        distance = Vector3.Distance(playerTransform.position, transform.position);
+        distance = Vector3.Distance(player.transform.position, transform.position);
         
         if(distance <= 1.6f){
             animator.SetBool("Attack", true);

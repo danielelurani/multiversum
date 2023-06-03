@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ZWHitBox : MonoBehaviour
 {
-    public ZombieWalkerHealth health;
+
+    private ZWHealth health;
+
+    void Start(){
+
+        health = GetComponentInParent<ZWHealth>();
+    }
 
     public void OnRaycastHitP(Pistol pistol){
         health.TakeDamage(pistol.damage);

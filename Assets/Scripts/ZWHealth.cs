@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieWalkerHealth : MonoBehaviour
+public class ZWHealth : MonoBehaviour
 {
 
-    public float maxHealth = 100f;
-    public float currentHealth;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float currentHealth;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
