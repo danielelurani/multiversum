@@ -25,13 +25,17 @@ public class ZTHealth : MonoBehaviour
 
         if(currentHealth <= 0.0f){
 
+            if(!animator.GetBool("isDead"))
+                Die();
+
             animator.SetBool("isDead", true);
             agent.speed = 0.0f;
-            Die();
         }
     }
 
     public void Die(){
         Destroy(gameObject, 5.0f);
+        GameManager.playerScore += 400;
+        GameManager.zombiesAlive --;
     }
 }

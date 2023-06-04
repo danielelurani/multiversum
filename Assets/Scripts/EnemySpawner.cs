@@ -9,6 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject zombieTank;
     [SerializeField] private float interval = 1f;
 
+    private int baseZombieWalkerCount = 5;
+    private int baseZombieRunnerCount = 2;
+    private int baseZombieTankCount = 1;
+
     private int zombieWalkerCount = 0;
     private int zombieRunnerCount = 0;
     private int zombieTankCount = 0;
@@ -29,34 +33,37 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator spawnZW(float interval, GameObject enemyType){
 
-        while(zombieWalkerCount < 10){
+        while(zombieWalkerCount < baseZombieWalkerCount * GameManager.currentWave){
 
             yield return new WaitForSeconds(interval);
             GameObject newEnemy = Instantiate(enemyType, transform.position, Quaternion.identity);
 
             zombieWalkerCount ++;
+            GameManager.zombiesAlive ++;
         }
     }
 
     private IEnumerator spawnZR(float interval, GameObject enemyType){
 
-        while(zombieRunnerCount < 5){
+        while(zombieRunnerCount < baseZombieRunnerCount * GameManager.currentWave){
 
             yield return new WaitForSeconds(interval);
             GameObject newEnemy = Instantiate(enemyType, transform.position, Quaternion.identity);
 
             zombieRunnerCount ++;
+            GameManager.zombiesAlive ++;
         }
     }
 
     private IEnumerator spawnZT(float interval, GameObject enemyType){
 
-        while(zombieTankCount < 3){
+        while(zombieTankCount < baseZombieTankCount * GameManager.currentWave){
 
             yield return new WaitForSeconds(interval);
             GameObject newEnemy = Instantiate(enemyType, transform.position, Quaternion.identity);
 
             zombieTankCount ++;
+            GameManager.zombiesAlive ++;
         }
     }
 }

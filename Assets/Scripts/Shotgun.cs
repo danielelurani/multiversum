@@ -89,8 +89,6 @@ public class Shotgun : MonoBehaviour
             // si spara dalla posizione della camera, nella direzione della camera, vengono prese le informazioni necessarie, definito il range
             // il metodo ritorna un booleano, se si è colpito qualcosa o meno
             if(Physics.Raycast(fpsCamera.transform.position, shootDirection, out hitInfo, range)){
-                
-                Debug.Log(hitInfo.transform.name);
 
                 var hitBoxZW = hitInfo.transform.GetComponent<ZWHitBox>();
                 var hitBoxZR = hitInfo.transform.GetComponent<ZRHitBox>();
