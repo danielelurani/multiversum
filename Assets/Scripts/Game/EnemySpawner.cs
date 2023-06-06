@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject zombieWalker;
     [SerializeField] private GameObject zombieRunner;
     [SerializeField] private GameObject zombieTank;
-    [SerializeField] private float interval = 1f;
+    [SerializeField] private float interval = 0.5f;
 
     private int random = 1;
     private GameObject spwn1;
@@ -19,9 +19,14 @@ public class EnemySpawner : MonoBehaviour
     private int baseZombieRunnerCount = 2;
     private int baseZombieTankCount = 1;
 
-    private int zombieWalkerCount = 0;
-    private int zombieRunnerCount = 0;
-    private int zombieTankCount = 0;
+    private int zombieToSpawn;
+    private int spawnedZombies;
+
+    public static int zombieWalkerCount = 0;
+    public static int zombieRunnerCount = 0;
+    public static int zombieTankCount = 0;
+    
+    public static bool spawnCompleted;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +42,29 @@ public class EnemySpawner : MonoBehaviour
         zombieRunner = Resources.Load<GameObject>("Prefabs/ZombieRunner");
         zombieTank = Resources.Load<GameObject>("Prefabs/ZombieTank");
 
-        StartCoroutine(spawnZW(interval, zombieWalker));
-        StartCoroutine(spawnZR(interval, zombieRunner));
-        StartCoroutine(spawnZT(interval, zombieTank));
+        spawnCompleted = false;
+        zombieToSpawn = 0;
+        spawnedZombies = 0;
+
     }
 
     void Update() {
         random = Random.Range(1,5);
+
+        zombieToSpawn = (baseZombieWalkerCount * GameManager.currentWave) + (baseZombieRunnerCount * GameManager.currentWave)+ (baseZombieTankCount *     GameManager.currentWave);
+
+        spawnedZombies = zombieRunnerCount + zombieWalkerCount + zombieTankCount;
+
+        if(spawnedZombies == zombieToSpawn)
+            spawnCompleted = true;
+
+    }
+
+    public void StartWave(){
+
+        StartCoroutine(spawnZW(interval, zombieWalker));
+        StartCoroutine(spawnZR(interval, zombieRunner));
+        StartCoroutine(spawnZT(interval, zombieTank));
     }
 
     private IEnumerator spawnZW(float interval, GameObject enemyType){
@@ -126,13 +147,5 @@ public class EnemySpawner : MonoBehaviour
             zombieTankCount ++;
             GameManager.zombiesAlive ++;
         }
-    }
-
-    // resetta i contatori per la prossima ondata
-    public void ResetValues(){
-
-        zombieWalkerCount = 0;
-        zombieRunnerCount = 0;
-        zombieTankCount = 0;
     }
 }

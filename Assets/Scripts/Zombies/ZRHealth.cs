@@ -37,5 +37,6 @@ public class ZRHealth : MonoBehaviour
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 200;
         GameManager.zombiesAlive --;
+        EnemySpawner.zombieRunnerCount --;
     }
 }

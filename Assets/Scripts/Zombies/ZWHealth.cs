@@ -38,5 +38,6 @@ public class ZWHealth : MonoBehaviour
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 100;
         GameManager.zombiesAlive --;
+        EnemySpawner.zombieWalkerCount --;
     }
 }

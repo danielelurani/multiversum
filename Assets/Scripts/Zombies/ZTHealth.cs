@@ -37,5 +37,6 @@ public class ZTHealth : MonoBehaviour
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 400;
         GameManager.zombiesAlive --;
+        EnemySpawner.zombieTankCount --;
     }
 }
