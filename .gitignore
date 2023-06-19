@@ -1,11 +1,13 @@
 # Cartelle
 .vscode/
 .vs/
+.vsconfig/
 Library/
 Logs/
 UserSettings/
 Temp/
 Assets/ThirdPartyAssets/
+obj/
 
 
 # File autogenerati
