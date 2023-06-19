@@ -1,7 +1,6 @@
 # Cartelle
 .vscode/
 .vs/
-.vsconfig/
 Library/
 Logs/
 UserSettings/
@@ -13,3 +12,4 @@ obj/
 *.csproj
 *.unityproj
 *.sln
+.vsconfig
