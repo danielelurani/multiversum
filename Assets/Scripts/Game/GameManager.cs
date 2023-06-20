@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     private GameObject wavesTimerTextObject;
     private Text wavesTimerText;
+
+    private GameObject scoreTextObject;
+    private Text scoreText;
+
     private EnemySpawner enemySpawner;
 
     public static int playerScore;
@@ -26,7 +30,10 @@ public class GameManager : MonoBehaviour
         wavesTimerTextObject = GameObject.Find("WavesTimerText");
         wavesTimerTextObject.SetActive(false);
 
+        scoreTextObject = GameObject.Find("Score");
+
         wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
+        scoreText = scoreTextObject.GetComponent<Text>();
         enemySpawner = GameObject.Find("ZombieSpawner").GetComponent<EnemySpawner>();
     }
 
@@ -45,6 +52,8 @@ public class GameManager : MonoBehaviour
         if(EnemySpawner.spawnCompleted){
             waveCanStart = true;
         }
+
+        scoreText.text = "Score = " + playerScore;
             
 
         Debug.Log(zombiesAlive);
