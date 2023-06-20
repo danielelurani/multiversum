@@ -24,6 +24,12 @@ public class ZWMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // gli zombie si muovono solo dopo che sonn spawnati tutti
+        if(EnemySpawner.spawnCompleted == true)
+            agent.speed = 1f;
+        else
+            agent.speed = 0f;
+
         timer -= Time.deltaTime;
         if(timer < 0.0f){
             agent.destination = player.transform.position;
