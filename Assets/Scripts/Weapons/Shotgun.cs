@@ -9,8 +9,8 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float fireRate = 6f;
     [SerializeField] private int magazine = 8;
     [SerializeField] private int currentBullets = 8;
-    [SerializeField] private int maxAmmo = 160;
-    [SerializeField] private int currentAmmo = 80;
+    [SerializeField] public int maxAmmo = 160;
+    [SerializeField] public int currentAmmo = 80;
     [SerializeField] private float spread = 0.025f;
     [SerializeField] private int bulletPieces = 8;
 

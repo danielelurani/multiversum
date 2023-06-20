@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
 
     private EnemySpawner enemySpawner;
 
+    private GameObject rifle;
+    public static Rifle rifleScript;
+
+    private GameObject shotgun;
+    public static Shotgun shotgunScript;
+
     public static int playerScore;
     public static int currentWave;
     public static int zombiesAlive;
@@ -22,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 0;
+        playerScore = 2500;
         currentWave = 0;
         zombiesAlive = 0;
         waveCanStart = true;
@@ -35,6 +41,15 @@ public class GameManager : MonoBehaviour
         wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
         scoreText = scoreTextObject.GetComponent<Text>();
         enemySpawner = GameObject.Find("ZombieSpawner").GetComponent<EnemySpawner>();
+
+        rifle = GameObject.Find("Rifle");
+        rifleScript = rifle.GetComponent<Rifle>();
+
+        shotgun = GameObject.Find("Shotgun");
+        shotgunScript = shotgun.GetComponent<Shotgun>();
+
+        rifle.SetActive(false);
+        shotgun.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,10 +69,6 @@ public class GameManager : MonoBehaviour
         }
 
         scoreText.text = "Score = " + playerScore;
-            
-
-        Debug.Log(zombiesAlive);
-        Debug.Log(currentWave);
     }
 
     // attiva timer per inizio ondata

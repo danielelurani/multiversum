@@ -16,9 +16,9 @@ public class EquippingScript : MonoBehaviour
     public AudioSource[] audio2;
     public AudioSource[] audio3;
 
-    private bool isSlot1Active;
-    private bool isSlot2Active;
-    private bool isSlot3Active;
+    public bool isSlot1Active;
+    public bool isSlot2Active;
+    public bool isSlot3Active;
 
     // Start is called before the first frame update
     void Start()
