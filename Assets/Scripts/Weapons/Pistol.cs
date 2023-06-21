@@ -9,8 +9,8 @@ public class Pistol : MonoBehaviour
     [SerializeField] private float fireRate = 4f;
     [SerializeField] private int magazine = 12;
     [SerializeField] private int currentBullets = 12;
-    [SerializeField] private int maxAmmo = 240;
-    [SerializeField] private int currentAmmo = 120;
+    [SerializeField] public int maxAmmo = 240;
+    [SerializeField] public int currentAmmo = 120;
     [SerializeField] private float spread = 0.01f;
 
     // punto dal quale escono i proiettili

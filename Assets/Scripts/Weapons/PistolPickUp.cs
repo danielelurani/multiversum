@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RiflePickUp : MonoBehaviour
+public class PistolPickUp : MonoBehaviour
 {
     private GameObject player;
     private EquippingScript equip;
@@ -12,8 +12,8 @@ public class RiflePickUp : MonoBehaviour
     private GameObject insufficentScore;
     private GameObject buyAmmoText;
 
-    private int cost = 2000;        // costo per comprare il fucile
-    private int ammoCost = 500;     // costo per comprare le munizioni
+    private int cost = 500;        // costo per comprare il fucile
+    private int ammoCost = 200;     // costo per comprare le munizioni
 
     [SerializeField] private float pickUpRange = 2f;
 
@@ -24,15 +24,15 @@ public class RiflePickUp : MonoBehaviour
         equip = player.GetComponent<EquippingScript>();
 
         // trovo il testo che segnala la mancanza di punteggio
-        insufficentScore = GameObject.Find("RifleInsufficientScore");
+        insufficentScore = GameObject.Find("PistolInsufficientScore");
         insufficentScore.SetActive(false);
 
         // trovo il testo per prendere il fucile
-        textObject = GameObject.Find("RiflePickUpText");
+        textObject = GameObject.Find("PistolPickUpText");
         textObject.SetActive(false);
 
         //trovo il testo per comprare le munizioni
-        buyAmmoText = GameObject.Find("RifleRefillAmmoText");
+        buyAmmoText = GameObject.Find("PistolRefillAmmoText");
         buyAmmoText.SetActive(false);
     }
 
@@ -43,7 +43,7 @@ public class RiflePickUp : MonoBehaviour
 
         // controlli per la funzione per prendere il fucile dal muro
         // se la distanza è minore del range e se non ho già il fucile
-        if(distanceToPlayer <= pickUpRange && equip.slotEquippedATM != 2 && !equip.isSlot2Active){
+        if(distanceToPlayer <= pickUpRange && equip.slotEquippedATM != 1 && !equip.isSlot1Active){
 
             // se ho abbastanza punti
             if(GameManager.playerScore >= cost){
@@ -60,13 +60,13 @@ public class RiflePickUp : MonoBehaviour
             }
         } 
 
-        // controlli per la funzione per comprare le munizioni del fucile
-        // se la distanza è minore del range, se ho già il fucile ed è equipaggiato al mmento,
+        // controlli per la funzione per comprare le munizioni della pistola
+        // se la distanza è minore del range, se ho già la pistola ed è equipaggiata al momento,
         // se non ho già il massimo delle munizioni
         else if(distanceToPlayer <= pickUpRange &&
-         equip.slotEquippedATM == 2 &&
-         equip.isSlot2Active &&
-         GameManager.rifleScript.currentAmmo < GameManager.rifleScript.maxAmmo)
+         equip.slotEquippedATM == 1 &&
+         equip.isSlot1Active &&
+         GameManager.pistolScript.currentAmmo < GameManager.pistolScript.maxAmmo)
          {
 
             // se ho abbastanza punti
@@ -93,36 +93,27 @@ public class RiflePickUp : MonoBehaviour
     // funzione per equipaggiare il fucile
     private void PickUp(){
 
-        if(equip.numberOfSlotActive == 1){
-
-            equip.Slot2(true);
-            equip.numberOfSlotActive = 2;
-            GameManager.playerScore -= cost;
+        switch (equip.slotEquippedATM)
+        {
+            case 2:
+                equip.Slot2(false);
+                equip.Slot1(true);
+                equip.Equip1();
+                break;
+            case 3:
+                equip.Slot3(false);
+                equip.Slot1(true);
+                equip.Equip1();
+                break;
+            default: break;
         }
-        else{
 
-            switch (equip.slotEquippedATM)
-            {
-                case 1:
-                    equip.Slot1(false);
-                    equip.Slot2(true);
-                    equip.Equip2();
-                    break;
-                case 3:
-                    equip.Slot3(false);
-                    equip.Slot2(true);
-                    equip.Equip2();
-                    break;
-                default: break;
-            }
-
-            GameManager.playerScore -= cost;
-        }
+        GameManager.playerScore -= cost;
     }
 
     private void RefillAmmo(){
 
-        GameManager.rifleScript.currentAmmo = GameManager.rifleScript.maxAmmo;
+        GameManager.pistolScript.currentAmmo = GameManager.pistolScript.maxAmmo;
         GameManager.playerScore -= ammoCost;
     }
 }

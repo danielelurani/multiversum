@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private GameObject shotgun;
     public static Shotgun shotgunScript;
 
+    private GameObject pistol;
+    public static Pistol pistolScript;
+
     public static int playerScore;
     public static int currentWave;
     public static int zombiesAlive;
@@ -47,6 +50,9 @@ public class GameManager : MonoBehaviour
 
         shotgun = GameObject.Find("Shotgun");
         shotgunScript = shotgun.GetComponent<Shotgun>();
+
+        pistol = GameObject.Find("Pistol");
+        pistolScript = pistol.GetComponent<Pistol>();
 
         rifle.SetActive(false);
         shotgun.SetActive(false);
