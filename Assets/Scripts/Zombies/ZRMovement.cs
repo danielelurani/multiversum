@@ -12,7 +12,6 @@ public class ZRMovement : MonoBehaviour
     private float maxTime = 0.5f;
     private float distance;
     private float timer = 0.0f;
-    private bool movementActivated;
 
     // Start is called before the first frame update
     void Start()
@@ -20,23 +19,11 @@ public class ZRMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
-        movementActivated = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        // gli zombie si muovono solo dopo che sonn spawnati tutti
-        if(EnemySpawner.spawnCompleted && !movementActivated){
-            agent.speed = 3.5f;
-            movementActivated = true;
-        }
-        
-        if(!EnemySpawner.spawnCompleted && movementActivated){
-            agent.speed = 0f;
-            movementActivated = false;
-        }
 
         timer -= Time.deltaTime;
         if(timer < 0.0f){
