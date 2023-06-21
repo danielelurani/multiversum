@@ -9,6 +9,9 @@ public class BossNavMesh : MonoBehaviour
     private GameObject player;
     Animator animator;
 
+    private float maxTime = 0.5f;
+    private float distance;
+    private float timer = 0.0f;
 
     private void Start()
     {
@@ -20,7 +23,37 @@ public class BossNavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navMeshAgent.destination = player.transform.position;
+        timer -= Time.deltaTime;
+        if (timer < 0.0f)
+        {
+            navMeshAgent.destination = player.transform.position;
+            timer = maxTime;
+        }
+
         animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+
+        distance = Vector3.Distance(player.transform.position, transform.position);
+
+        Vector3 directionToTarget = player.transform.position - transform.position;
+        directionToTarget.y = 0f;
+
+        if (distance <= 1.6f)
+        {
+
+            if (!animator.GetBool("isDead"))
+            {
+
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+            }
+
+            animator.SetBool("Attack", true);
+
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+        }
     }
 }
+
