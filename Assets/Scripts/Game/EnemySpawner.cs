@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(spawnedZombies == zombieToSpawn)
             spawnCompleted = true;
-
+            
     }
 
     public void StartWave(){

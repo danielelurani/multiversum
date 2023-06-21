@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
     public static int currentWave;
     public static int zombiesAlive;
 
-    private bool waveCanStart;
+    public static bool waveCanStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 2500;
+        playerScore = 0;
         currentWave = 0;
         zombiesAlive = 0;
         waveCanStart = true;
@@ -70,9 +70,8 @@ public class GameManager : MonoBehaviour
             waveCanStart = false;
         }
 
-        if(EnemySpawner.spawnCompleted){
+        if(EnemySpawner.spawnCompleted)
             waveCanStart = true;
-        }
 
         scoreText.text = "Score = " + playerScore;
     }
