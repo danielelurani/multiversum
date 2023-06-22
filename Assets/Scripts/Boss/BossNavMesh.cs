@@ -37,7 +37,7 @@ public class BossNavMesh : MonoBehaviour
         Vector3 directionToTarget = player.transform.position - transform.position;
         directionToTarget.y = 0f;
 
-        if (distance <= 1.6f)
+        if (distance <= 3.5f)
         {
 
             if (!animator.GetBool("isDead"))
