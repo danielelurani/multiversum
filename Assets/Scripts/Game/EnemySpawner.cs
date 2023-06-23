@@ -19,8 +19,8 @@ public class EnemySpawner : MonoBehaviour
     private int baseZombieRunnerCount = 2;
     private int baseZombieTankCount = 1;
 
-    private int zombieToSpawn;
-    private int spawnedZombies;
+    private int zombiesToSpawn;
+    public static int spawnedZombies;
 
     public static int zombieWalkerCount = 0;
     public static int zombieRunnerCount = 0;
@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         zombieTank = Resources.Load<GameObject>("Prefabs/ZombieTank");
 
         spawnCompleted = false;
-        zombieToSpawn = 0;
+        zombiesToSpawn = 0;
         spawnedZombies = 0;
 
     }
@@ -51,12 +51,15 @@ public class EnemySpawner : MonoBehaviour
     void Update() {
         random = Random.Range(1,5);
 
-        zombieToSpawn = (baseZombieWalkerCount * GameManager.currentWave) + (baseZombieRunnerCount * GameManager.currentWave)+ (baseZombieTankCount *     GameManager.currentWave);
+        zombiesToSpawn = (baseZombieWalkerCount * GameManager.currentWave) + (baseZombieRunnerCount * GameManager.currentWave)+ (baseZombieTankCount *     GameManager.currentWave);
 
-        spawnedZombies = zombieRunnerCount + zombieWalkerCount + zombieTankCount;
-
-        if(spawnedZombies == zombieToSpawn)
+        if(spawnedZombies >= zombiesToSpawn && !spawnCompleted)
             spawnCompleted = true;
+        
+
+        Debug.Log("Zombie Spawnati " + spawnedZombies);
+        Debug.Log("Zombies Alive " + GameManager.zombiesAlive);
+        Debug.Log("Spawn completed ? " + spawnCompleted);
             
     }
 
@@ -89,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
                 
-
+            spawnedZombies++;
             zombieWalkerCount ++;
             GameManager.zombiesAlive ++;
         }
@@ -117,6 +120,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
 
+            spawnedZombies++;
             zombieRunnerCount ++;
             GameManager.zombiesAlive ++;
         }
@@ -144,6 +148,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
 
+            spawnedZombies++;
             zombieTankCount ++;
             GameManager.zombiesAlive ++;
         }

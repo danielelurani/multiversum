@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         // controlla se la nuova ondata può partire
         if(waveCanStart == true && zombiesAlive == 0 && currentWave <= 5){
             EnemySpawner.spawnCompleted = false;
+            EnemySpawner.spawnedZombies = 0;
             currentWave++;
             StartCoroutine(UpdateWavesTimerText());
             waveCanStart = false;
