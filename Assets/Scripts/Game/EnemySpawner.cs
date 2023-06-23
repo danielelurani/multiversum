@@ -55,11 +55,6 @@ public class EnemySpawner : MonoBehaviour
 
         if(spawnedZombies >= zombiesToSpawn && !spawnCompleted)
             spawnCompleted = true;
-        
-
-        Debug.Log("Zombie Spawnati " + spawnedZombies);
-        Debug.Log("Zombies Alive " + GameManager.zombiesAlive);
-        Debug.Log("Spawn completed ? " + spawnCompleted);
             
     }
 
