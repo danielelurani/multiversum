@@ -58,7 +58,6 @@ public class BossNavMesh : MonoBehaviour
         if(animator.GetBool("SecondPhase"))
         {
 
-            navMeshAgent.speed = 4; 
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
             transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
 
