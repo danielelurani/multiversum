@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 300f;
+    [SerializeField] private float maxHealth = 500f;
     [SerializeField] private float currentHealth;
 
     private Animator animator;
@@ -22,6 +22,11 @@ public class BossHealth : MonoBehaviour
     {
 
         currentHealth -= amount;
+
+        if (currentHealth <= 250)
+        {
+            animator.SetBool("SecondPhase", true);
+        }
 
         if (currentHealth <= 0.0f)
         {

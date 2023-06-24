@@ -54,6 +54,16 @@ public class BossNavMesh : MonoBehaviour
         {
             animator.SetBool("Attack", false);
         }
+
+        if(animator.GetBool("SecondPhase"))
+        {
+
+            navMeshAgent.speed = 4; 
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+
+            animator.SetBool("Throw", true);
+        }
     }
     
 }
