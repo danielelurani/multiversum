@@ -93,8 +93,9 @@ public class Shotgun : MonoBehaviour
                 var hitBoxZW = hitInfo.transform.GetComponent<ZWHitBox>();
                 var hitBoxZR = hitInfo.transform.GetComponent<ZRHitBox>();
                 var hitBoxZT = hitInfo.transform.GetComponent<ZTHitBox>();
+                var hitBoxBoss=  hitInfo.transform.GetComponent<BossHitBox>();
 
-                if(hitBoxZW){
+                if (hitBoxZW){
                     hitBoxZW.OnRaycastHitS(this);
                 }
 
@@ -104,6 +105,11 @@ public class Shotgun : MonoBehaviour
 
                 if(hitBoxZT){
                     hitBoxZT.OnRaycastHitS(this);
+                }
+
+                if(hitBoxBoss)
+                {
+                    hitBoxBoss.OnRaycastHitS(this);
                 }
 
                 // effetto di impatto del proiettile

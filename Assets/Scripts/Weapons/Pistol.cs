@@ -92,8 +92,10 @@ public class Pistol : MonoBehaviour
             var hitBoxZW = hitInfo.transform.GetComponent<ZWHitBox>();
             var hitBoxZR = hitInfo.transform.GetComponent<ZRHitBox>();
             var hitBoxZT = hitInfo.transform.GetComponent<ZTHitBox>();
+            var hitBoxBoss = hitInfo.transform.GetComponent<BossHitBox>();
 
-            if(hitBoxZW){
+
+            if (hitBoxZW){
                 hitBoxZW.OnRaycastHitP(this);
             }
 
@@ -105,8 +107,14 @@ public class Pistol : MonoBehaviour
                 hitBoxZT.OnRaycastHitP(this);
             }
 
+            if (hitBoxBoss)
+            {
+                hitBoxBoss.OnRaycastHitP(this);
+            }
+
+
             // effetto di impatto del proiettile
-            if(hitInfo.transform.tag == "ZombieHitbox"){
+            if (hitInfo.transform.tag == "ZombieHitbox"){
                 
                 GameObject impactedBullet = Instantiate(impactEffectZombies, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                 // distruggo i proiettili impattati
