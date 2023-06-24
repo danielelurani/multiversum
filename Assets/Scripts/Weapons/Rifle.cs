@@ -81,6 +81,7 @@ public class Rifle : MonoBehaviour
         Vector3 shootDirection = fpsCamera.transform.forward;
         shootDirection.x += Random.Range(-spread, spread);
         shootDirection.y += Random.Range(-spread, spread);
+        shootDirection.z += Random.Range(-spread, spread);
 
         // si spara dalla posizione della camera, nella direzione della camera, vengono prese le informazioni necessarie, definito il range
         // il metodo ritorna un booleano, se si è colpito qualcosa o meno

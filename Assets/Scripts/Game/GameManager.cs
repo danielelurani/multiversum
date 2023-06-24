@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 0;
+        playerScore = 5000;
         currentWave = 0;
         zombiesAlive = 0;
         waveCanStart = true;
