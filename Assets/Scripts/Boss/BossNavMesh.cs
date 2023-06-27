@@ -47,11 +47,13 @@ public class BossNavMesh : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
             }
 
+            animator.speed = 0f;
             animator.SetBool("Attack", true);
-          
+
         }
         else
         {
+            
             animator.SetBool("Attack", false);
         }
 
@@ -61,7 +63,7 @@ public class BossNavMesh : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
             transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
 
-            animator.SetBool("Throw", true);
+            
         }
     }
     
