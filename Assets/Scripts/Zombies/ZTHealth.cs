@@ -8,6 +8,10 @@ public class ZTHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 250f;
     [SerializeField] public float currentHealth;
 
+    private float random;
+
+    private GameObject health, ammo, instantKill;
+
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -17,6 +21,10 @@ public class ZTHealth : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        health = Resources.Load<GameObject>("Prefabs/HealthPU");
+        ammo = Resources.Load<GameObject>("Prefabs/MaxAmmoPU");
+        instantKill = Resources.Load<GameObject>("Prefabs/InstantKillPU");
     }
 
     public void TakeDamage(float amount){
@@ -33,10 +41,39 @@ public class ZTHealth : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        random = Random.Range(0f,1f);
+    }
+
     public void Die(){
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 400;
         GameManager.zombiesAlive --;
         EnemySpawner.zombieTankCount --;
+
+        if(random > 0.15f && random <= 0.25f){
+
+            Vector3 position = transform.position;
+            position.y += 0.5f;
+            Vector3 newPosition = position;
+            GameObject powerUp = Instantiate(ammo, newPosition, Quaternion.identity);
+        }
+
+        if(random >= 0.1f && random <= 0.15){
+
+            Vector3 position = transform.position;
+            position.y += 0.5f;
+            Vector3 newPosition = position;
+            GameObject powerUp = Instantiate(health, newPosition, Quaternion.identity);
+        }
+
+        if(random >= 0.05f && random <= 0.07){
+
+            Vector3 position = transform.position;
+            position.y += 0.5f;
+            Vector3 newPosition = position;
+            GameObject powerUp = Instantiate(health, newPosition, Quaternion.identity);
+        }
     }
 }

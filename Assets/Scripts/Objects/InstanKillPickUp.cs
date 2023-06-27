@@ -14,6 +14,7 @@ public class InstanKillPickUp : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        Destroy(gameObject, 30f);
     }
 
     private void OnTriggerEnter(Collider collider)

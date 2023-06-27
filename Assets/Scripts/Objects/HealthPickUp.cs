@@ -16,6 +16,8 @@ public class HealthPickUp : MonoBehaviour
 
         // dagli oggetti trovati prendo gli script
         playerStats = player.GetComponent<CharacterStats>();
+
+        Destroy(gameObject, 30f);
     }
 
     // se il giocatore tocca il power up, metti le munizioni delle armi al massimo

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerScore = 5000;
-        currentWave = 0;
+        currentWave = 4;
         zombiesAlive = 0;
         waveCanStart = true;
 
@@ -75,27 +76,39 @@ public class GameManager : MonoBehaviour
             waveCanStart = true;
 
         scoreText.text = "Score = " + playerScore;
+
+        if(currentWave == 6)
+            StartCoroutine(EndGame());
     }
 
     // attiva timer per inizio ondata
     private IEnumerator UpdateWavesTimerText(){
 
-        for(int i = 10; i >= 0; i--){
+        if(currentWave <=5){
+            for(int i = 10; i >= 0; i--){
 
-            if(i == 1)
-            {
-                yield return new WaitForSeconds(1f);            
-                wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondo ...";
-                wavesTimerTextObject.SetActive(true);
-            } else
-            {
-                yield return new WaitForSeconds(1f);            
-                wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondi ...";
-                wavesTimerTextObject.SetActive(true);
+                if(i == 1)
+                {
+                    yield return new WaitForSeconds(1f);            
+                    wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondo ...";
+                    wavesTimerTextObject.SetActive(true);
+                } else
+                {
+                    yield return new WaitForSeconds(1f);            
+                    wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondi ...";
+                    wavesTimerTextObject.SetActive(true);
+                }
             }
-        }
 
-        wavesTimerTextObject.SetActive(false);
-        enemySpawner.StartWave();
+            wavesTimerTextObject.SetActive(false);
+            enemySpawner.StartWave();
+        }
+    }
+
+    private IEnumerator EndGame(){
+        
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("GameOverScene");
+        
     }
 }
