@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - ZombieHitbox
+  - Health
+  - Ammo
+  - InstantKill
+  - Zombie
   layers:
   - Default
   - TransparentFX

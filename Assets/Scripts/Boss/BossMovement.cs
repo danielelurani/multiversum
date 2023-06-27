@@ -43,6 +43,5 @@ public class BossMovement : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        i
     }
 }

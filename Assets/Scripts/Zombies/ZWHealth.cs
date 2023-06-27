@@ -6,7 +6,7 @@ public class ZWHealth : MonoBehaviour
 {
 
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float currentHealth;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;

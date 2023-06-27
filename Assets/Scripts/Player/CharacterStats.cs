@@ -7,8 +7,8 @@ public class CharacterStats : MonoBehaviour
 
 {
 
-    [SerializeField] protected int health;
-    [SerializeField] protected int maxHealth;
+    [SerializeField] public int health;
+    [SerializeField] public int maxHealth;
     [SerializeField] protected bool isDead;
 
     public HealthBar healthBar;
@@ -25,6 +25,7 @@ public class CharacterStats : MonoBehaviour
     void Update()
     {
         CheckHealth();
+        healthBar.SetHealth(health);
     }
 
     public void CheckHealth()
