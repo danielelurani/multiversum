@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     private GameObject pistol;
     public static Pistol pistolScript;
 
+    private GameObject saveManager;
+    private SaveManager smScript;
+
     public static int playerScore;
     public static int currentWave;
     public static int zombiesAlive;
@@ -32,8 +35,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 5000;
-        currentWave = 4;
+        playerScore = 0;
+        currentWave = 0;
         zombiesAlive = 0;
         waveCanStart = true;
 
@@ -41,6 +44,9 @@ public class GameManager : MonoBehaviour
         wavesTimerTextObject.SetActive(false);
 
         scoreTextObject = GameObject.Find("Score");
+
+        saveManager = GameObject.Find("SaveManager");
+        smScript = saveManager.GetComponent<SaveManager>();
 
         wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
         scoreText = scoreTextObject.GetComponent<Text>();
@@ -57,12 +63,22 @@ public class GameManager : MonoBehaviour
 
         rifle.SetActive(false);
         shotgun.SetActive(false);
+
+        //smScript.LoadData();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (Input.GetKeyDown(KeyCode.L)){
+            smScript.LoadScene();
+        }
 
+        if (Input.GetKeyDown(KeyCode.S)){
+            smScript.SaveData();
+        }
+        */
         // controlla se la nuova ondata può partire
         if(waveCanStart == true && zombiesAlive == 0 && currentWave <= 5){
             EnemySpawner.spawnCompleted = false;
