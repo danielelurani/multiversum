@@ -6,14 +6,18 @@ using UnityEngine.AI;
 public class BossMovement : MonoBehaviour
 {
 
-    private Transform player;
-    private NavMeshAgent agent;
+    public Transform player;
+    public NavMeshAgent agent;
     public LayerMask whatIsPlayer;
 
     private Animator animator;
 
     public float sightRange, attackRange;
     public bool playerInAttackRange;
+   
+    private float maxTime = 0.5f;
+  
+    private float timer = 0.0f;
 
     private void Awake()
     {
@@ -24,16 +28,26 @@ public class BossMovement : MonoBehaviour
 
     private void Update()
     {
+
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (playerInAttackRange) AttackPlayer();
-        if (!playerInAttackRange) SearchPlayer();
+        if (playerInAttackRange)
+            AttackPlayer();
+
+        if (!playerInAttackRange) 
+            SearchPlayer();
+     
+        if (animator.GetBool("SecondPhase"))
+        {
+            
+        }
 
     }
 
     private void SearchPlayer()
     {
-        agent.SetDestination(player.transform.position);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
+        agent.SetDestination(player.position);
 
     }
 
@@ -42,6 +56,8 @@ public class BossMovement : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        animator.SetBool("Attack", true);
+
 
     }
 }

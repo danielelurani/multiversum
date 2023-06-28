@@ -13,6 +13,8 @@ public class BossNavMesh : MonoBehaviour
     private float distance;
     private float timer = 0.0f;
 
+    public bool inAttackRange;
+
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -31,40 +33,49 @@ public class BossNavMesh : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-
+        
         distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance <= 3f)
+        {
+            AttackPlayer();
+        }
+        else
+            animator.SetBool("Attack", false);
+    }
+
+   
+    private void FixedUpdate()
+    {
+
+        if (animator.GetBool("SecondPhase"))
+        {
+            navMeshAgent.SetDestination(transform.position);
+            animator.SetBool("Throw", true);
+        }
+        else
+            animator.SetBool("Throw", false);
+        
+    }
+
+   
+    private void AttackPlayer()
+    {
+        
 
         Vector3 directionToTarget = player.transform.position - transform.position;
         directionToTarget.y = 0f;
 
-        if (distance <= 4.5f)
-        {
+        navMeshAgent.SetDestination(transform.position);
 
-            if (!animator.GetBool("isDead"))
-            {
-
-                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
-                transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
-            }
-
-            animator.speed = 0f;
-            animator.SetBool("Attack", true);
-
-        }
-        else
-        {
-            
-            animator.SetBool("Attack", false);
-        }
-
-        if(animator.GetBool("SecondPhase"))
+        if (!animator.GetBool("isDead"))
         {
 
             Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
             transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
 
-            
-        }
+            animator.SetBool("Attack", true);
+        } 
     }
     
 }
