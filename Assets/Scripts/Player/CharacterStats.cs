@@ -11,8 +11,8 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] public int health;
     [SerializeField] public int maxHealth;
     [SerializeField] protected bool isDead;
-    [SerializeField] private AudioSource hitEffect;
-
+    
+    private AudioSource hitEffect;
     public HealthBar healthBar;
     private Image redSplatterImage;
     Color splatterAlpha;
@@ -44,7 +44,6 @@ public class CharacterStats : MonoBehaviour
             health = 0;
             isDead = true;
             SceneManager.LoadScene("GameOverScene");
-
         }
 
         if(health >= maxHealth)
@@ -55,6 +54,7 @@ public class CharacterStats : MonoBehaviour
 
     public void Die()
     {
+        
         isDead = true;
     }
 

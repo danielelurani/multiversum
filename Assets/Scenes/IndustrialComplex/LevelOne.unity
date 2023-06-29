@@ -20815,7 +20815,6 @@ MonoBehaviour:
   health: 0
   maxHealth: 0
   isDead: 0
-  hitEffect: {fileID: 0}
   healthBar: {fileID: 2024123811}
 --- !u!114 &448040647
 MonoBehaviour:
