@@ -8,10 +8,13 @@ public class ZWMovement : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject player;
     private Animator animator;
+    private AudioSource audio;
     
     private float maxTime = 0.5f;
     private float distance;
     private float timer = 0.0f;
+    private float random;
+    private bool isAudioPlaying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,9 @@ public class ZWMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
+        audio = GetComponent<AudioSource>();
+
+        StartCoroutine(ZombieSound());
     }
 
     // Update is called once per frame
@@ -50,6 +56,28 @@ public class ZWMovement : MonoBehaviour
             
         } else {
             animator.SetBool("Attack", false);
+        }
+
+        random = Random.Range(3,8);
+    }
+
+    private IEnumerator ZombieSound(){
+
+        while(true){
+
+            yield return new WaitForSeconds(random);
+
+            if (distance <= 15f && !isAudioPlaying)
+            {
+                audio.Play();
+                isAudioPlaying = true;
+            }
+            else if (distance > 15f && isAudioPlaying)
+            {
+                isAudioPlaying = false;
+            }
+
+            yield return new WaitForSeconds(random);
         }
     }
 }

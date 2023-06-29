@@ -11,6 +11,7 @@ public class ZWHealth : MonoBehaviour
     private float random;
 
     private GameObject health, ammo, instantKill;
+    private AudioSource audio;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -25,6 +26,8 @@ public class ZWHealth : MonoBehaviour
         health = Resources.Load<GameObject>("Prefabs/HealthPU");
         ammo = Resources.Load<GameObject>("Prefabs/MaxAmmoPU");
         instantKill = Resources.Load<GameObject>("Prefabs/InstantKillPU");
+
+        audio = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float amount){
@@ -48,6 +51,9 @@ public class ZWHealth : MonoBehaviour
     }
 
     public void Die(){
+
+        audio.enabled = false;
+
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 100;
         GameManager.zombiesAlive --;
