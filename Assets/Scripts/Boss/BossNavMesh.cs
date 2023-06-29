@@ -14,7 +14,7 @@ public class BossNavMesh : MonoBehaviour
     private float timer = 0.0f;
 
     public bool inAttackRange;
-
+    int k = 0;
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -33,7 +33,7 @@ public class BossNavMesh : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-        
+
         distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance <= 3f)
@@ -42,23 +42,22 @@ public class BossNavMesh : MonoBehaviour
         }
         else
             animator.SetBool("Attack", false);
-    }
 
-   
-    private void FixedUpdate()
-    {
 
+        /*
         if (animator.GetBool("SecondPhase"))
         {
-            navMeshAgent.SetDestination(transform.position);
-            animator.SetBool("Throw", true);
-        }
-        else
-            animator.SetBool("Throw", false);
-        
-    }
+            k++;
 
-   
+            if (k % 20 == 0)
+            {
+                    navMeshAgent.SetDestination(transform.position);
+                    animator.SetBool("Throw", true);
+                }
+            }
+   */
+        }
+        
     private void AttackPlayer()
     {
         
