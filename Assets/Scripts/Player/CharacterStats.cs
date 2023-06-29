@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 
@@ -12,6 +13,8 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] protected bool isDead;
 
     public HealthBar healthBar;
+    private Image redSplatterImage;
+    Color splatterAlpha;
 
 
     private void Start()
@@ -20,6 +23,9 @@ public class CharacterStats : MonoBehaviour
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         isDead = false;
+        redSplatterImage = GameObject.Find("DamageEffectCanvas").GetComponentInChildren<Image>();
+
+        splatterAlpha = redSplatterImage.color;
     }
 
     void Update()
@@ -57,6 +63,11 @@ public class CharacterStats : MonoBehaviour
 
     public void TakeDamage (int damage)
     {
+
+        splatterAlpha.a = 1;
+        redSplatterImage.color = splatterAlpha;
+        StartCoroutine(DamageEffect());
+
         health = health - damage;
         healthBar.SetHealth(health);
     }
@@ -64,5 +75,15 @@ public class CharacterStats : MonoBehaviour
     public void Heal(int heal)
     { 
      int healthAfterHeal = health + heal;
+    }
+
+    // funzione che fa scomparire lentamente l'effetto del danno sullo schermo
+    private IEnumerator DamageEffect(){
+
+        while(splatterAlpha.a >= 0){
+            yield return new WaitForSeconds(0.02f);
+            splatterAlpha.a = splatterAlpha.a - 0.01f;
+            redSplatterImage.color = splatterAlpha;
+        }
     }
 }
