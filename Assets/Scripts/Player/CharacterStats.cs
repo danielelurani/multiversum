@@ -11,10 +11,12 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] public int health;
     [SerializeField] public int maxHealth;
     [SerializeField] protected bool isDead;
+    [SerializeField] private AudioSource hitEffect;
 
     public HealthBar healthBar;
     private Image redSplatterImage;
     Color splatterAlpha;
+    
 
 
     private void Start()
@@ -24,6 +26,7 @@ public class CharacterStats : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         isDead = false;
         redSplatterImage = GameObject.Find("DamageEffectCanvas").GetComponentInChildren<Image>();
+        hitEffect = GetComponent<AudioSource>();
 
         splatterAlpha = redSplatterImage.color;
     }
@@ -63,7 +66,7 @@ public class CharacterStats : MonoBehaviour
 
     public void TakeDamage (int damage)
     {
-
+        hitEffect.Play();
         splatterAlpha.a = 1;
         redSplatterImage.color = splatterAlpha;
         StartCoroutine(DamageEffect());
