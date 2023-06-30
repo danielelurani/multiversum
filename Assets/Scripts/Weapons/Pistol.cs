@@ -7,8 +7,8 @@ public class Pistol : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 4f;
-    [SerializeField] private int magazine = 12;
-    [SerializeField] private int currentBullets = 12;
+    [SerializeField] public int magazine = 12;
+    [SerializeField] public int currentBullets = 12;
     [SerializeField] public int maxAmmo = 240;
     [SerializeField] public int currentAmmo = 120;
     [SerializeField] private float spread = 0.01f;

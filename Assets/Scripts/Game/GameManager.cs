@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator EndGame(){
         
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("LoadingLevelScene");
         
     }
 }
