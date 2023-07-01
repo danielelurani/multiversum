@@ -11,6 +11,7 @@ public class ZRHealth : MonoBehaviour
     private float random;
 
     private GameObject health, ammo, instantKill;
+    private AudioSource audioZR;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -25,6 +26,8 @@ public class ZRHealth : MonoBehaviour
         health = Resources.Load<GameObject>("Prefabs/HealthPU");
         ammo = Resources.Load<GameObject>("Prefabs/MaxAmmoPU");
         instantKill = Resources.Load<GameObject>("Prefabs/InstantKillPU");
+
+        audioZR = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,6 +50,8 @@ public class ZRHealth : MonoBehaviour
     }
 
     public void Die(){
+
+        audioZR.enabled = false;
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 200;
         GameManager.zombiesAlive --;

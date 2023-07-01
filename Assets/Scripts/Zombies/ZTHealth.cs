@@ -11,6 +11,7 @@ public class ZTHealth : MonoBehaviour
     private float random;
 
     private GameObject health, ammo, instantKill;
+    private AudioSource audioZT;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -25,6 +26,8 @@ public class ZTHealth : MonoBehaviour
         health = Resources.Load<GameObject>("Prefabs/HealthPU");
         ammo = Resources.Load<GameObject>("Prefabs/MaxAmmoPU");
         instantKill = Resources.Load<GameObject>("Prefabs/InstantKillPU");
+
+        audioZT = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float amount){
@@ -47,6 +50,7 @@ public class ZTHealth : MonoBehaviour
     }
 
     public void Die(){
+        audioZT.enabled = false;
         Destroy(gameObject, 5.0f);
         GameManager.playerScore += 400;
         GameManager.zombiesAlive --;
