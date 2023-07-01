@@ -23,7 +23,7 @@ public class ZWDamage : MonoBehaviour
 
     private void Update()
     {
-        if (!collisionProcessed && animator.GetBool("Attack") && CheckCollision(transform.position, player.transform.position, collisionRadius))
+        if (!collisionProcessed && animator.GetBool("Attack") && !animator.GetBool("isDead") && CheckCollision(transform.position, player.transform.position, collisionRadius))
         {
             playerStats.TakeDamage(damage);
             collisionProcessed = true;
@@ -49,9 +49,4 @@ public class ZWDamage : MonoBehaviour
         yield return new WaitForSeconds(1f);
         collisionProcessed = false;
     }
-
-    /*private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player")
-            playerStats.TakeDamage(damage);
-    }*/
 }
