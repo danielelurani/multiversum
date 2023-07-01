@@ -71,10 +71,12 @@ public class SaveManager : MonoBehaviour
             PlayerPrefs.SetInt("Slot3", 0);
             PlayerPrefs.SetInt("ShotgunAmmo", shotgun.currentAmmo);
         }
+
+        Debug.Log("salvato");
+        Debug.Log("player score " + PlayerPrefs.GetInt("PlayerScore"));
     }
 
     public void LoadScene(){
-        
         SceneManager.LoadScene(PlayerPrefs.GetString("CurrentScene"));
     }
 

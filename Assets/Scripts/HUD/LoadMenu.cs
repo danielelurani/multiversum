@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class LoadMenu : MonoBehaviour
 {
+
+    private SaveManager sm;
+
+    void Start(){
+
+        sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+        GameManager.isSaveLoaded = true;
+    }
+
+    public void LoadSave()
+    {
+        sm.LoadScene();
+    }
+
     public void Load1()
     {
         SceneManager.LoadScene("LevelOne");
@@ -17,7 +31,7 @@ public class LoadMenu : MonoBehaviour
 
     public void Load3()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("LevelThree");
     }
 
     public void Back()

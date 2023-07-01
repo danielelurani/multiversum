@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public static int zombiesAlive;
 
     public static bool waveCanStart;
+    public static bool isSaveLoaded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,26 +65,26 @@ public class GameManager : MonoBehaviour
         rifle.SetActive(false);
         shotgun.SetActive(false);
 
-        //smScript.LoadData();
+        if(isSaveLoaded){
+            smScript.LoadData();
+            isSaveLoaded = false;
+            currentWave --;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.L)){
-            smScript.LoadScene();
-        }
 
-        if (Input.GetKeyDown(KeyCode.S)){
-            smScript.SaveData();
-        }
-        */
         // controlla se la nuova ondata può partire
         if(waveCanStart == true && zombiesAlive == 0 && currentWave <= 5){
             EnemySpawner.spawnCompleted = false;
             EnemySpawner.spawnedZombies = 0;
             currentWave++;
+
+            if(currentWave !=1)
+                smScript.SaveData();
+
             StartCoroutine(UpdateWavesTimerText());
             waveCanStart = false;
         }
