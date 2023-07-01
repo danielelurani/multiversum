@@ -23,6 +23,9 @@ public class WeaponHUD : MonoBehaviour
 
     void Start()
     {
+
+        player = GameObject.Find("Player");
+
         pistol = player.GetComponentInChildren<Pistol>(true);
         rifle = player.GetComponentInChildren<Rifle>(true);
         shotgun = player.GetComponentInChildren<Shotgun>(true);
