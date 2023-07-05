@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadingLevelMenu : MonoBehaviour
 {
+
+   
+
     public void BackToMenu()
     {
         Time.timeScale = 1f;
@@ -13,6 +16,7 @@ public class LoadingLevelMenu : MonoBehaviour
 
     public void GoToNextLevel()
     {
-
+        string currentScene = PlayerPrefs.GetString("CurrentScene");
+        SceneManager.LoadScene(currentScene + 1);
     }
 }
