@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     private GameObject saveManager;
     private SaveManager smScript;
 
+    private Image winFadeImage;
+    Color imageAlpha;
+
     public static int playerScore;
     public static int currentWave;
     public static int zombiesAlive;
@@ -61,6 +64,9 @@ public class GameManager : MonoBehaviour
 
         pistol = GameObject.Find("Pistol");
         pistolScript = pistol.GetComponent<Pistol>();
+
+        winFadeImage = GameObject.Find("WinFadeImage").GetComponent<Image>();
+        imageAlpha = winFadeImage.color;
 
         rifle.SetActive(false);
         shotgun.SetActive(false);
@@ -123,9 +129,17 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator EndGame(){
-        
-        yield return new WaitForSeconds(5f);
+
+        while(imageAlpha.a <= 10){
+
+            yield return new WaitForSeconds(1f);
+            imageAlpha.a = imageAlpha.a + 0.01f;
+            winFadeImage.color = imageAlpha;
+            pistol.SetActive(false);
+            rifle.SetActive(false);
+            shotgun.SetActive(false);
+        }
+
         SceneManager.LoadScene("LoadingLevelScene");
-        
     }
 }
