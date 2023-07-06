@@ -130,14 +130,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndGame(){
 
-        while(imageAlpha.a <= 10){
+        while(imageAlpha.a <= 5){
 
             yield return new WaitForSeconds(1f);
-            imageAlpha.a = imageAlpha.a + 0.01f;
+            imageAlpha.a = imageAlpha.a + 0.001f;
             winFadeImage.color = imageAlpha;
-            pistol.SetActive(false);
-            rifle.SetActive(false);
-            shotgun.SetActive(false);
         }
 
         SceneManager.LoadScene("LoadingLevelScene");
