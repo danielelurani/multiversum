@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         currentWave = gameWave;
         zombiesAlive = 0;
         waveCanStart = true;
+        PauseMenu.isGamePaused = false;
 
         wavesTimerTextObject = GameObject.Find("WavesTimerText");
         wavesTimerTextObject.SetActive(false);

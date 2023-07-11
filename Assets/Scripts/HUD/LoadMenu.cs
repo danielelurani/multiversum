@@ -11,11 +11,11 @@ public class LoadMenu : MonoBehaviour
     void Start(){
 
         sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
-        GameManager.isSaveLoaded = true;
     }
 
     public void LoadSave()
     {
+        GameManager.isSaveLoaded = true;
         sm.LoadScene();
     }
 
