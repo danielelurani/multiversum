@@ -94566,6 +94566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 2014801679}
+  gameScore: 0
+  gameWave: 0
 --- !u!4 &1976121627
 Transform:
   m_ObjectHideFlags: 0

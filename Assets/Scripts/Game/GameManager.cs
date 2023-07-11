@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject winCanvas;
+    [SerializeField] private GameObject winCanvas;
+    [SerializeField] private int gameScore = 0;
+    [SerializeField] private int gameWave = 0;
 
     private GameObject wavesTimerTextObject;
     private Text wavesTimerText;
@@ -41,8 +43,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = 0;
-        currentWave = 0;
+        playerScore = gameScore;
+        currentWave = gameWave;
         zombiesAlive = 0;
         waveCanStart = true;
 

@@ -38,7 +38,7 @@ public class WeaponHUD : MonoBehaviour
 
     void Update()
     {
-        if (equip.isSlot1Active)
+        if (equip.slotEquippedATM == 1)
         {
             //aggiorna testo su canvas
             MagazineSizeText.text = pistol.currentBullets.ToString();
@@ -47,7 +47,7 @@ public class WeaponHUD : MonoBehaviour
 
         }
 
-        if (equip.isSlot2Active)
+        if (equip.slotEquippedATM == 2)
         {
             //aggiorna testo su canvas
             MagazineSizeText.text = rifle.currentBullets.ToString();
@@ -55,15 +55,12 @@ public class WeaponHUD : MonoBehaviour
             WeaponIcon.sprite = rifleSprite;
         }
 
-        if (equip.isSlot3Active)
+        if (equip.slotEquippedATM == 3)
         {
             //aggiorna testo su canvas
             MagazineSizeText.text = shotgun.currentBullets.ToString();
             MagazineCountText.text = shotgun.currentAmmo.ToString();
             WeaponIcon.sprite = shotgunSprite;
         }
-
-
     }
-
 }
