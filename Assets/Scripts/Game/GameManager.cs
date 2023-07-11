@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject winCanvas;
+
     private GameObject wavesTimerTextObject;
     private Text wavesTimerText;
 
@@ -65,9 +67,7 @@ public class GameManager : MonoBehaviour
         pistol = GameObject.Find("Pistol");
         pistolScript = pistol.GetComponent<Pistol>();
 
-        winFadeImage = GameObject.Find("WinFadeImage").GetComponent<Image>();
-        imageAlpha = winFadeImage.color;
-
+        winCanvas.SetActive(false);
         rifle.SetActive(false);
         shotgun.SetActive(false);
 
@@ -129,6 +129,10 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator EndGame(){
+
+        winCanvas.SetActive(true);
+        winFadeImage = winCanvas.GetComponent<Image>();
+        imageAlpha = winFadeImage.color;
 
         while(imageAlpha.a <= 5){
 
