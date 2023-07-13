@@ -2914,7 +2914,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &65761706
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10504,7 +10504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &254605795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17394,7 +17394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &380682610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38254,7 +38254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 2000 \t\tMunizioni = 500"
+  m_text: "Price = 2000 \t\t Ammo = 500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42758,7 +42758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 4000 \t\tMunizioni = 1000"
+  m_text: "Price = 4000 \t\t  Ammo = 1000"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -44490,7 +44490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &892677648
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57182,7 +57182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 500 \t\tMunizioni = 200"
+  m_text: "Price = 500 \t\t\tAmmo = 200"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -69116,7 +69116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &1454117447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -74187,7 +74187,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inizio ondata 1 in 10 secondi ...
+  m_Text: Wave 1 starts in 10 seconds ...
 --- !u!222 &1560889448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75030,7 +75030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &1587143533
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -80113,7 +80113,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &1705719373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -87671,7 +87671,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &1867717206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -99604,7 +99604,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &2139244149
 CanvasRenderer:
   m_ObjectHideFlags: 0

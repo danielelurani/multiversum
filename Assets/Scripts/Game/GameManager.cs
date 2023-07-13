@@ -116,12 +116,12 @@ public class GameManager : MonoBehaviour
                 if(i == 1)
                 {
                     yield return new WaitForSeconds(1f);            
-                    wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondo ...";
+                    wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " second ...";
                     wavesTimerTextObject.SetActive(true);
                 } else
                 {
                     yield return new WaitForSeconds(1f);            
-                    wavesTimerText.text = "Inizio ondata " + currentWave + " in " + i + " secondi ...";
+                    wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " seconds ...";
                     wavesTimerTextObject.SetActive(true);
                 }
             }

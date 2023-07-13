@@ -4389,7 +4389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &200092585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10457,7 +10457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &505272793
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10902,7 +10902,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &524724248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16655,7 +16655,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per comprare munizioni per l'arma
+  m_Text: Press "E" to buy ammo
 --- !u!222 &760985868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18457,7 +18457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &830879498
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19798,7 +19798,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Premi "E" per equipaggiare l'arma
+  m_Text: Press "E" to equip
 --- !u!222 &875682819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25368,7 +25368,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &1187100494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27542,7 +27542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 4000 \t\tMunizioni = 1000"
+  m_text: "Price = 4000 \t\t  Ammo = 1000"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28316,7 +28316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 2000 \t\tMunizioni = 500"
+  m_text: "Price = 2000 \t\t    Ammo = 500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33726,7 +33726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inizio ondata 1 in 10 secondi ...
+  m_Text: Wave 1 starts in 10 seconds ...
 --- !u!222 &1531976878
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35052,7 +35052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prezzo = 500 \t\tMunizioni = 200"
+  m_text: "Price = 500 \t\t\t    Ammo = 200"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41091,6 +41091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1538954455}
+  gameScore: 0
+  gameWave: 0
 --- !u!1001 &1846183241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41532,7 +41534,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &1862186740
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45350,7 +45352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Non hai abbastanza punti!
+  m_Text: Not enough points!
 --- !u!222 &2077138531
 CanvasRenderer:
   m_ObjectHideFlags: 0
