@@ -13,6 +13,11 @@ public class BossDamage : MonoBehaviour
     private Animator animator;
     private bool collisionProcessed = false;
 
+    public float shiftDistance = 2f; 
+    public float shiftDuration = 0.5f;
+    public Vector3 shiftDirection = Vector3.back;
+    private float shiftTimer = 0f;
+    private bool isShifted;
 
     void Start()
     {
@@ -31,6 +36,8 @@ public class BossDamage : MonoBehaviour
             playerStats.TakeDamage(damage);
             collisionProcessed = true;
             StartCoroutine(WaitForNextAttack());
+            ShiftBack();
+           
         }
     }
 
@@ -54,4 +61,13 @@ public class BossDamage : MonoBehaviour
         collisionProcessed = false;
     }
 
+    private void ShiftBack()
+    {
+        shiftTimer = shiftDuration; 
+        shiftTimer -= Time.deltaTime;
+
+        Vector3 knockbackVector = shiftDirection * shiftDistance * (shiftTimer/ shiftDuration);
+
+        player.transform.position += knockbackVector;
+    }
 }
