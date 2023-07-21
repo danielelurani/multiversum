@@ -43,6 +43,13 @@ public class BossNavMesh : MonoBehaviour
         else
             animator.SetBool("Attack", false);
 
+        if (distance >= 10f)
+        {
+            animator.SetBool("Throw", true);
+        } else
+            animator.SetBool("Throw", false);
+
+
         }
         
     private void AttackPlayer()

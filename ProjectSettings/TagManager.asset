@@ -9,6 +9,7 @@ TagManager:
   - Ammo
   - InstantKill
   - Zombie
+  - Boss
   layers:
   - Default
   - TransparentFX
