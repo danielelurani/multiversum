@@ -55,7 +55,6 @@ public class ThrowRock : MonoBehaviour
             Vector3 throwDirection = (player.transform.position - throwSpawnPoint.position).normalized;
             rb.useGravity = true;
             rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
-            //rb.useGravity = false;
             isThrowing = false;
             
         }

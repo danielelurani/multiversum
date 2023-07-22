@@ -13,6 +13,7 @@ public class BossNavMesh : MonoBehaviour
     private float distance;
     private float timer = 0.0f;
 
+    private float interval = 2.0f;
    
     
     private void Start()
@@ -42,16 +43,25 @@ public class BossNavMesh : MonoBehaviour
         }
         else
             animator.SetBool("Attack", false);
+        /*
 
-        if (distance >= 10f)
+        if(animator.GetBool("SecondPhase"))
         {
-            ThrowObject();
+            StartCoroutine(SecondPhaseAttack());
         }
-        else
-            animator.SetBool("Throw", false);
+        */
     }
+
+    private IEnumerator SecondPhaseAttack()
+    {
+
         
-        
+        yield return new WaitForSeconds(interval);
+        ThrowObject();
+       
+
+
+    }
     private void AttackPlayer()
     {
         
@@ -85,7 +95,9 @@ public class BossNavMesh : MonoBehaviour
 
             animator.SetBool("Throw", true);
         }
+
+        animator.SetBool("Throw", false);
     }
-   
+
 }
 

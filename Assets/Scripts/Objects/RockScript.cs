@@ -24,6 +24,9 @@ public class RockScript : MonoBehaviour
             playerStats.TakeDamage(damage);
             Destroy(gameObject);
         }
+
     }
+
+   
 
 }

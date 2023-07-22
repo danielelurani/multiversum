@@ -11,6 +11,7 @@ TagManager:
   - Zombie
   - Boss
   - Rock
+  - Floor
   layers:
   - Default
   - TransparentFX

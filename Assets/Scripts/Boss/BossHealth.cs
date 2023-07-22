@@ -26,6 +26,7 @@ public class BossHealth : MonoBehaviour
         if (currentHealth <= 250)
         { 
             animator.SetBool("SecondPhase", true);
+            agent.speed = 3.5f;
         }
 
         if (currentHealth <= 0.0f)
