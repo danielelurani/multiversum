@@ -45,17 +45,16 @@ public class BossNavMesh : MonoBehaviour
 
         if (distance >= 10f)
         {
-            animator.SetBool("Throw", true);
-        } else
-            animator.SetBool("Throw", false);
-
-
+            ThrowObject();
         }
+        else
+            animator.SetBool("Throw", false);
+    }
+        
         
     private void AttackPlayer()
     {
         
-
         Vector3 directionToTarget = player.transform.position - transform.position;
         directionToTarget.y = 0f;
 
@@ -68,8 +67,25 @@ public class BossNavMesh : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
 
             animator.SetBool("Attack", true);
-        } 
+        }
     }
     
+    private void ThrowObject()
+    {
+        Vector3 directionToTarget = player.transform.position - transform.position;
+        directionToTarget.y = 0f;
+
+        navMeshAgent.SetDestination(transform.position);
+
+        if (!animator.GetBool("isDead"))
+        {
+
+            Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+            transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+
+            animator.SetBool("Throw", true);
+        }
+    }
+   
 }
 

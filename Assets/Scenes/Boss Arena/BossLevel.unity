@@ -16430,7 +16430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToThrow: {fileID: 4111703542605751276, guid: 891920b52c03cc54ea5509654ea29dec, type: 3}
   throwSpawnPoint: {fileID: 2120105874}
-  throwForce: 100
+  throwForce: 50
+  minThrowInterval: 2
+  maxThrowInterval: 5
 --- !u!1 &741957128
 GameObject:
   m_ObjectHideFlags: 0
@@ -37146,11 +37148,6 @@ CapsuleCollider:
   m_Height: 0.8064861
   m_Direction: 1
   m_Center: {x: -0.000000026030229, y: 0.24975562, z: -0.00000003338877}
---- !u!4 &1681318361 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6000407479487422213, guid: 9d222658fa2009448ad33a09a63d5865, type: 3}
-  m_PrefabInstance: {fileID: 606427988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682096386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37918,6 +37915,11 @@ CapsuleCollider:
   m_Height: 0.32337612
   m_Direction: 1
   m_Center: {x: 0.016780643, y: 0.15361165, z: 0.004764579}
+--- !u!4 &1721211784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 9d222658fa2009448ad33a09a63d5865, type: 3}
+  m_PrefabInstance: {fileID: 606427988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1731437999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46331,13 +46333,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120105873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.012239481, y: 0.0015554889, z: 0.003100803, w: 0.9999191}
+  m_LocalPosition: {x: 0.004953068, y: -0.7936048, z: 0.019423716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1681318361}
-  m_RootOrder: 1
+  m_Father: {fileID: 1721211784}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2124871011 stripped
 Transform:

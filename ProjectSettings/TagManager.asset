@@ -10,6 +10,7 @@ TagManager:
   - InstantKill
   - Zombie
   - Boss
+  - Rock
   layers:
   - Default
   - TransparentFX

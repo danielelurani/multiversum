@@ -9,28 +9,31 @@ public class ThrowRock : MonoBehaviour
     private GameObject rock;
     public Transform throwSpawnPoint;
     public float throwForce = 10f;
-  
-    private bool isThrowing;
+
+    public float minThrowInterval = 2f;
+    public float maxThrowInterval = 5f;
+
+    private bool isThrowing = false;
     private GameObject player;
     private Rigidbody rb;
+  
 
     private void Start()
     {
         player = GameObject.Find("Player");
+
     }
 
-    /*
-    private void FixedUpdate()
+    private void Update()
     {
-        RaycastHit hitPoint;
-       bool raycastRes = Physics.Raycast(transform.position, transform.forward, out hitPoint, Mathf.Infinity);
-
-        if (raycastRes)
+        if (isThrowing)
         {
-            Debug.Log("Collision")
+            rock.transform.position = throwSpawnPoint.position;
+            rock.transform.rotation = throwSpawnPoint.rotation;
         }
+
+
     }
-    */
 
     public void InstantiateObject()
     {
@@ -44,7 +47,7 @@ public class ThrowRock : MonoBehaviour
     }
 
 
-   
+
     public void ThrowObject()
     {
         if (isThrowing)
@@ -52,7 +55,9 @@ public class ThrowRock : MonoBehaviour
             Vector3 throwDirection = (player.transform.position - throwSpawnPoint.position).normalized;
             rb.useGravity = true;
             rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
-            isThrowing = false; 
+            //rb.useGravity = false;
+            isThrowing = false;
+            
         }
     }
 }

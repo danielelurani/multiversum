@@ -4,32 +4,26 @@ using UnityEngine;
 
 public class RockScript : MonoBehaviour
 {
-    [SerializeField]
-    private Transform parentBone;
-    [SerializeField]
-    private  Rigidbody rigid;
-    [SerializeField]
-    private float force = 2000;
+    private GameObject player;
+    private CharacterStats playerStats;
+
+    [SerializeField] private int damage = 50;
 
     // Start is called before the first frame update
     void Start()
     {
-        parentBone = GetComponentInParent<Transform>();
-        rigid = GetComponent<Rigidbody>();
-        rigid.useGravity = false;
+        player = GameObject.Find("Player");
+        playerStats = player.GetComponent<CharacterStats>();
     }
 
-    // Update is called once per frame
-    void Update()
+ 
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerStats.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 
-    public void ReleaseRock()
-    {
-        transform.parent = null;
-        rigid.useGravity = true;
-        transform.rotation = parentBone.transform.rotation;
-        rigid.AddForce(transform.forward * force);
-    }
 }
