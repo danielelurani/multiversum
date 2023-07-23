@@ -16,12 +16,12 @@ public class ThrowRock : MonoBehaviour
     private bool isThrowing = false;
     private GameObject player;
     private Rigidbody rb;
-  
+    private Animator animator;
 
     private void Start()
     {
         player = GameObject.Find("Player");
-
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,6 +32,7 @@ public class ThrowRock : MonoBehaviour
             rock.transform.rotation = throwSpawnPoint.rotation;
         }
 
+        
 
     }
 

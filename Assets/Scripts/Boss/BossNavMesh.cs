@@ -8,21 +8,23 @@ public class BossNavMesh : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private GameObject player;
     Animator animator;
-
     private float maxTime = 0.5f;
     private float distance;
     private float timer = 0.0f;
+    private float interval = 1f;
 
-    private float interval = 2.0f;
-   
+  
     
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
-    }
 
+        
+
+    }
+  
     // Update is called once per frame
     void Update()
     {
@@ -37,28 +39,44 @@ public class BossNavMesh : MonoBehaviour
 
         distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distance <= 2.5f)
+        if (distance <= 2.0f)
         {
             AttackPlayer();
         }
         else
             animator.SetBool("Attack", false);
-        /*
 
-        if(animator.GetBool("SecondPhase"))
-        {
+
+        if(animator.GetBool("SecondPhase")) { 
             StartCoroutine(SecondPhaseAttack());
-        }
-        */
+           }
+
     }
 
     private IEnumerator SecondPhaseAttack()
     {
 
-        
-        yield return new WaitForSeconds(interval);
-        ThrowObject();
-       
+        while (animator.GetBool("SecondPhase")) {
+
+            ThrowObject();
+
+            /*
+            AnimationClip clip = animator.GetCurrentAnimatorClipInfo(0)[0].clip;
+            float durataAnimazione = clip.length;
+            
+            yield return new WaitForSeconds(durataAnimazione);
+
+            
+            animator.SetBool("Throw", false);
+            */
+
+            yield return new WaitForSeconds(interval);
+
+            
+
+        }
+
+
 
 
     }
@@ -96,7 +114,7 @@ public class BossNavMesh : MonoBehaviour
             animator.SetBool("Throw", true);
         }
 
-        animator.SetBool("Throw", false);
+       
     }
 
 }

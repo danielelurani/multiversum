@@ -6,7 +6,7 @@ public class ShiftController : MonoBehaviour
 {
 
     public float shiftDistance = 5f; 
-    public float shiftDuration = 1f; 
+    public float shiftDuration = 2f; 
     
     private Vector3 shiftDirection; 
     private float shiftTimer;
@@ -31,7 +31,7 @@ public class ShiftController : MonoBehaviour
     {
         if (other.CompareTag("Boss"))
         {       
-            shiftDirection = Vector3.back;
+            shiftDirection = -player.transform.forward;
 
             isShifted= true;
             shiftTimer = Time.time; //tempo allo start dello shift

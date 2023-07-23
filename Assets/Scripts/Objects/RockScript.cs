@@ -6,7 +6,6 @@ public class RockScript : MonoBehaviour
 {
     private GameObject player;
     private CharacterStats playerStats;
-
     [SerializeField] private int damage = 50;
 
     // Start is called before the first frame update
@@ -14,6 +13,7 @@ public class RockScript : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerStats = player.GetComponent<CharacterStats>();
+    
     }
 
  
