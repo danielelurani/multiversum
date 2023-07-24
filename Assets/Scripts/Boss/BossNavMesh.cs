@@ -5,13 +5,14 @@ using UnityEngine.AI;
 
 public class BossNavMesh : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     private GameObject player;
-    Animator animator;
+    public Animator animator;
     private float maxTime = 0.5f;
     private float distance;
     private float timer = 0.0f;
     private float interval = 1f;
+    public float launchTimer = 0.0f;
 
   
     
@@ -29,6 +30,8 @@ public class BossNavMesh : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        launchTimer += Time.deltaTime;
+
         if (timer < 0.0f)
         {
             navMeshAgent.destination = player.transform.position;
@@ -45,48 +48,14 @@ public class BossNavMesh : MonoBehaviour
         }
         else
             animator.SetBool("Attack", false);
+        
 
-        
-        if(animator.GetBool("SecondPhase")) { 
-            StartCoroutine(SecondPhaseAttack());
-           }
-        
-        /*
-        if(distance >= 10f)
+        if(launchTimer >= 10f && animator.GetBool("SecondPhase") && distance >= 5f)
             ThrowObject();
-        else
-            animator.SetBool("Throw", false);
-            */
+
 
     }
 
-    private IEnumerator SecondPhaseAttack()
-    {
-
-        while (animator.GetBool("SecondPhase")) {
-
-            ThrowObject();
-
-            /*
-            AnimationClip clip = animator.GetCurrentAnimatorClipInfo(0)[0].clip;
-            float durataAnimazione = clip.length;
-            
-            yield return new WaitForSeconds(durataAnimazione);
-
-            
-            animator.SetBool("Throw", false);
-            */
-
-            yield return new WaitForSeconds(interval);
-
-            
-
-        }
-
-
-
-
-    }
     private void AttackPlayer()
     {
         
@@ -111,6 +80,7 @@ public class BossNavMesh : MonoBehaviour
         directionToTarget.y = 0f;
 
         navMeshAgent.SetDestination(transform.position);
+        navMeshAgent.speed = 0.0f;
 
         if (!animator.GetBool("isDead"))
         {
@@ -121,8 +91,9 @@ public class BossNavMesh : MonoBehaviour
             animator.SetBool("Throw", true);
         }
 
-       
+        //launchTimer = 0f;
+        //animator.SetBool("Throw", false);
+        //navMeshAgent.speed = 3.5f;
     }
-
 }
 

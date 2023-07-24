@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThrowRock : MonoBehaviour
 {
+    public BossNavMesh BossNavMesh;
 
     public GameObject objectToThrow;
     private GameObject rock;
@@ -57,7 +58,10 @@ public class ThrowRock : MonoBehaviour
             rb.useGravity = true;
             rb.AddForce(throwDirection * throwForce, ForceMode.Impulse);
             isThrowing = false;
-            
+
+            BossNavMesh.launchTimer = 0f;
+            BossNavMesh.animator.SetBool("Throw", false);
+            BossNavMesh.navMeshAgent.speed = 3.5f;
         }
     }
 }

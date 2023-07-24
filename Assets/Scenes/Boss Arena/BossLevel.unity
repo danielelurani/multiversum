@@ -18725,6 +18725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8687962057034052252, guid: 1124a4b478a149a4cb3da1e9af649510, type: 3}
+      propertyPath: BossNavMesh
+      value: 
+      objectReference: {fileID: 1659115013}
     - target: {fileID: 9159035250796719723, guid: 1124a4b478a149a4cb3da1e9af649510, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -31389,7 +31393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d6f6b195925c14ea70a98fea19b942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: 2
 --- !u!1001 &1479023889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36028,6 +36031,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3356318645633074387, guid: e654b65ecb21d204388c7b5216b098bd, type: 3}
+--- !u!114 &1659115013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8687962057034052240, guid: 1124a4b478a149a4cb3da1e9af649510, type: 3}
+  m_PrefabInstance: {fileID: 870891788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28fd8013acb49945a0464e53e7e1ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1660470414
 GameObject:
   m_ObjectHideFlags: 0
@@ -42473,6 +42487,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 158665982}
     m_Modifications:
+    - target: {fileID: 38431687, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 38431687, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
       propertyPath: fpsCamera
       value: 
