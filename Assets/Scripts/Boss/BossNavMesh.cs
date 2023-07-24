@@ -46,10 +46,17 @@ public class BossNavMesh : MonoBehaviour
         else
             animator.SetBool("Attack", false);
 
-
+        
         if(animator.GetBool("SecondPhase")) { 
             StartCoroutine(SecondPhaseAttack());
            }
+        
+        /*
+        if(distance >= 10f)
+            ThrowObject();
+        else
+            animator.SetBool("Throw", false);
+            */
 
     }
 
