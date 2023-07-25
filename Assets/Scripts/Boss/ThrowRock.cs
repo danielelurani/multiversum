@@ -9,7 +9,7 @@ public class ThrowRock : MonoBehaviour
     public GameObject objectToThrow;
     private GameObject rock;
     public Transform throwSpawnPoint;
-    public float throwForce = 10f;
+    public float throwForce = 80f;
 
     public float minThrowInterval = 2f;
     public float maxThrowInterval = 5f;
@@ -22,6 +22,7 @@ public class ThrowRock : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
+        BossNavMesh = GetComponent<BossNavMesh>();
         
     }
 

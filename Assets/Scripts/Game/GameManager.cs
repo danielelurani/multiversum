@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
     private GameObject scoreTextObject;
     private Text scoreText;
 
+    // boss level only variables
     private EnemySpawner enemySpawner;
+    private BossLevelSpawner bossLevelSpawner;
+    public static int enemiesAlive;
+    //---------------------------------------//
 
     private GameObject rifle;
     public static Rifle rifleScript;
@@ -43,91 +47,164 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScore = gameScore;
-        currentWave = gameWave;
-        zombiesAlive = 0;
-        waveCanStart = true;
-        PauseMenu.isGamePaused = false;
+        if(SceneManager.GetActiveScene().name == "BossLevel"){
 
-        wavesTimerTextObject = GameObject.Find("WavesTimerText");
-        wavesTimerTextObject.SetActive(false);
+            playerScore = gameScore;
+            enemiesAlive = 0;
+            waveCanStart = true;
+            PauseMenu.isGamePaused = false;
 
-        scoreTextObject = GameObject.Find("Score");
+            wavesTimerTextObject = GameObject.Find("WavesTimerText");
+            wavesTimerTextObject.SetActive(false);
 
-        saveManager = GameObject.Find("SaveManager");
-        smScript = saveManager.GetComponent<SaveManager>();
+            scoreTextObject = GameObject.Find("Score");
 
-        wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
-        scoreText = scoreTextObject.GetComponent<Text>();
-        enemySpawner = GameObject.Find("ZombieSpawner").GetComponent<EnemySpawner>();
+            saveManager = GameObject.Find("SaveManager");
+            smScript = saveManager.GetComponent<SaveManager>();
+            smScript.SaveCurrentScene();
 
-        rifle = GameObject.Find("Rifle");
-        rifleScript = rifle.GetComponent<Rifle>();
+            wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
+            scoreText = scoreTextObject.GetComponent<Text>();
+            bossLevelSpawner = GameObject.Find("EnemySpawner").GetComponent<BossLevelSpawner>();
 
-        shotgun = GameObject.Find("Shotgun");
-        shotgunScript = shotgun.GetComponent<Shotgun>();
+            rifle = GameObject.Find("Rifle");
+            rifleScript = rifle.GetComponent<Rifle>();
 
-        pistol = GameObject.Find("Pistol");
-        pistolScript = pistol.GetComponent<Pistol>();
+            shotgun = GameObject.Find("Shotgun");
+            shotgunScript = shotgun.GetComponent<Shotgun>();
 
-        winCanvas.SetActive(false);
-        rifle.SetActive(false);
-        shotgun.SetActive(false);
+            pistol = GameObject.Find("Pistol");
+            pistolScript = pistol.GetComponent<Pistol>();
 
-        if(isSaveLoaded){
-            smScript.LoadData();
-            isSaveLoaded = false;
-            currentWave --;
+            winCanvas.SetActive(false);
+            rifle.SetActive(false);
+            shotgun.SetActive(false);
+
+        } else {
+
+            playerScore = gameScore;
+            currentWave = gameWave;
+            zombiesAlive = 0;
+            waveCanStart = true;
+            PauseMenu.isGamePaused = false;
+
+            wavesTimerTextObject = GameObject.Find("WavesTimerText");
+            wavesTimerTextObject.SetActive(false);
+
+            scoreTextObject = GameObject.Find("Score");
+
+            saveManager = GameObject.Find("SaveManager");
+            smScript = saveManager.GetComponent<SaveManager>();
+
+            wavesTimerText = wavesTimerTextObject.GetComponent<Text>();
+            scoreText = scoreTextObject.GetComponent<Text>();
+            enemySpawner = GameObject.Find("ZombieSpawner").GetComponent<EnemySpawner>();
+
+            rifle = GameObject.Find("Rifle");
+            rifleScript = rifle.GetComponent<Rifle>();
+
+            shotgun = GameObject.Find("Shotgun");
+            shotgunScript = shotgun.GetComponent<Shotgun>();
+
+            pistol = GameObject.Find("Pistol");
+            pistolScript = pistol.GetComponent<Pistol>();
+
+            winCanvas.SetActive(false);
+            rifle.SetActive(false);
+            shotgun.SetActive(false);
+
+            if(isSaveLoaded){
+                smScript.LoadData();
+                isSaveLoaded = false;
+                currentWave --;
+            }
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name == "BossLevel"){
 
-        // controlla se la nuova ondata può partire
-        if(waveCanStart == true && zombiesAlive == 0 && currentWave <= 5){
-            EnemySpawner.spawnCompleted = false;
-            EnemySpawner.spawnedZombies = 0;
-            currentWave++;
+            // controlla se la nuova ondata può partire
+            if(waveCanStart == true){
 
-            if(currentWave !=1)
-                smScript.SaveData();
+                StartCoroutine(UpdateWavesTimerText());
+                waveCanStart = false;
+            }
 
-            StartCoroutine(UpdateWavesTimerText());
-            waveCanStart = false;
-        }
+            scoreText.text = "Score = " + playerScore;
 
-        if(EnemySpawner.spawnCompleted)
-            waveCanStart = true;
+        } else {
 
-        scoreText.text = "Score = " + playerScore;
+            // controlla se la nuova ondata può partire
+            if(waveCanStart == true && zombiesAlive == 0 && currentWave <= 5){
+                EnemySpawner.spawnCompleted = false;
+                EnemySpawner.spawnedZombies = 0;
+                currentWave++;
 
-        if(currentWave == 6)
-            StartCoroutine(EndGame());
+                if(currentWave !=1)
+                    smScript.SaveData();
+
+                StartCoroutine(UpdateWavesTimerText());
+                waveCanStart = false;
+            }
+
+            if(EnemySpawner.spawnCompleted)
+                waveCanStart = true;
+
+            scoreText.text = "Score = " + playerScore;
+
+            if(currentWave == 6)
+                StartCoroutine(EndGame());
+            }
     }
 
     // attiva timer per inizio ondata
     private IEnumerator UpdateWavesTimerText(){
 
-        if(currentWave <=5){
+        if(SceneManager.GetActiveScene().name == "BossLevel"){
+
             for(int i = 10; i >= 0; i--){
 
                 if(i == 1)
                 {
                     yield return new WaitForSeconds(1f);            
-                    wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " second ...";
+                    wavesTimerText.text = "Boss wave starts in " + i + " second ...";
                     wavesTimerTextObject.SetActive(true);
                 } else
                 {
                     yield return new WaitForSeconds(1f);            
-                    wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " seconds ...";
+                    wavesTimerText.text = "Boss wave starts in " + i + " seconds ...";
                     wavesTimerTextObject.SetActive(true);
                 }
             }
 
             wavesTimerTextObject.SetActive(false);
-            enemySpawner.StartWave();
+            bossLevelSpawner.StartWave();
+
+        } else {
+
+            if(currentWave <=5){
+                for(int i = 10; i >= 0; i--){
+
+                    if(i == 1)
+                    {
+                        yield return new WaitForSeconds(1f);            
+                        wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " second ...";
+                        wavesTimerTextObject.SetActive(true);
+                    } else
+                    {
+                        yield return new WaitForSeconds(1f);            
+                        wavesTimerText.text = "Wave " + currentWave + " starts in " + i + " seconds ...";
+                        wavesTimerTextObject.SetActive(true);
+                    }
+                }
+
+                wavesTimerTextObject.SetActive(false);
+                enemySpawner.StartWave();
+            }
         }
     }
 

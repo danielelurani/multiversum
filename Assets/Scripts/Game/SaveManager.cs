@@ -117,4 +117,10 @@ public class SaveManager : MonoBehaviour
         rifle.currentAmmo = PlayerPrefs.GetInt("RifleAmmo");
         shotgun.currentAmmo = PlayerPrefs.GetInt("ShotgunAmmo");
     }
+
+    public void SaveCurrentScene(){
+
+        currentScene = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("CurrentScene", currentScene);
+    }
 }
