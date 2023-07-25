@@ -19,9 +19,9 @@ public class LoadingLevelMenu : MonoBehaviour
             SceneManager.LoadScene("LevelTwo");
 
         if(currentScene == "LevelTwo")
-            SceneManager.LoadScene("LevelThree");
+            SceneManager.LoadScene("Tunnel");
 
-        if(currentScene == "LevelThree")
+        if(currentScene == "Tunnel")
             SceneManager.LoadScene("BossLevel");
     }
 }

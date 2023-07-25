@@ -35,7 +35,13 @@ public class LoadMenu : MonoBehaviour
     public void Load3()
     {
         Destroy(GameObject.Find("Music"));
-        SceneManager.LoadScene("LevelThree");
+        SceneManager.LoadScene("Tunnel");
+    }
+
+    public void LoadBoss()
+    {
+        Destroy(GameObject.Find("Music"));
+        SceneManager.LoadScene("BossLevel");
     }
 
     public void Back()
