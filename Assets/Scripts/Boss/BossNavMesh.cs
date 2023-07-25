@@ -7,6 +7,7 @@ public class BossNavMesh : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     private GameObject player;
+    
     public Animator animator;
     private float maxTime = 0.5f;
     private float distance;

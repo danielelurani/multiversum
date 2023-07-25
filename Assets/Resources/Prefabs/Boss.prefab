@@ -2522,6 +2522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28fd8013acb49945a0464e53e7e1ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 0}
+  animator: {fileID: 0}
+  launchTimer: 0
 --- !u!114 &8687962057034052252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2534,9 +2537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724622a826dd0df4ba790d1d65c5586f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossNavMesh: {fileID: 0}
   objectToThrow: {fileID: 4111703542605751276, guid: 891920b52c03cc54ea5509654ea29dec, type: 3}
   throwSpawnPoint: {fileID: 8687962056198122822}
-  throwForce: 50
+  throwForce: 80
   minThrowInterval: 2
   maxThrowInterval: 5
 --- !u!1 &8574776228190462197
