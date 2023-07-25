@@ -54,7 +54,6 @@ public class BossLevelSpawner : MonoBehaviour
     private void spawnBoss(GameObject enemyType){
 
         GameObject newEnemy = Instantiate(enemyType, bossSpwn.transform.position, Quaternion.identity);
-        GameManager.enemiesAlive ++;
     }
 
     private IEnumerator spawnZW(float interval, GameObject enemyType){
@@ -79,7 +78,7 @@ public class BossLevelSpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
             
-            GameManager.enemiesAlive ++;
+            GameManager.zombiesAlive ++;
         }
     }
 
@@ -105,7 +104,7 @@ public class BossLevelSpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
             
-            GameManager.enemiesAlive ++;
+            GameManager.zombiesAlive ++;
         }
     }
 
@@ -131,7 +130,7 @@ public class BossLevelSpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
             
-            GameManager.enemiesAlive ++;
+            GameManager.zombiesAlive ++;
         }
     }
 }

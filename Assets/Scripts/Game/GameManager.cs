@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     // boss level only variables
     private EnemySpawner enemySpawner;
     private BossLevelSpawner bossLevelSpawner;
-    public static int enemiesAlive;
+    public static bool bossIsDeath;
     //---------------------------------------//
 
     private GameObject rifle;
@@ -49,8 +49,9 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "BossLevel"){
 
+            bossIsDeath = false;
             playerScore = gameScore;
-            enemiesAlive = 0;
+            zombiesAlive = 0;
             waveCanStart = true;
             PauseMenu.isGamePaused = false;
 
@@ -136,6 +137,9 @@ public class GameManager : MonoBehaviour
 
             scoreText.text = "Score = " + playerScore;
 
+            if(zombiesAlive == 0 && bossIsDeath == true)
+                StartCoroutine(EndGame());
+
         } else {
 
             // controlla se la nuova ondata può partire
@@ -210,17 +214,35 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndGame(){
 
-        winCanvas.SetActive(true);
-        winFadeImage = winCanvas.GetComponent<Image>();
-        imageAlpha = winFadeImage.color;
+        if(SceneManager.GetActiveScene().name == "BossLevel"){
 
-        while(imageAlpha.a <= 5){
+            winCanvas.SetActive(true);
+            winFadeImage = winCanvas.GetComponent<Image>();
+            imageAlpha = winFadeImage.color;
 
-            yield return new WaitForSeconds(1f);
-            imageAlpha.a = imageAlpha.a + 0.001f;
-            winFadeImage.color = imageAlpha;
+            while(imageAlpha.a <= 5){
+
+                yield return new WaitForSeconds(1f);
+                imageAlpha.a = imageAlpha.a + 0.001f;
+                winFadeImage.color = imageAlpha;
+            }
+
+            SceneManager.LoadScene("GameOverScene");
+
+        } else {
+
+            winCanvas.SetActive(true);
+            winFadeImage = winCanvas.GetComponent<Image>();
+            imageAlpha = winFadeImage.color;
+
+            while(imageAlpha.a <= 5){
+
+                yield return new WaitForSeconds(1f);
+                imageAlpha.a = imageAlpha.a + 0.001f;
+                winFadeImage.color = imageAlpha;
+            }
+
+            SceneManager.LoadScene("LoadingLevelScene");
         }
-
-        SceneManager.LoadScene("LoadingLevelScene");
     }
 }

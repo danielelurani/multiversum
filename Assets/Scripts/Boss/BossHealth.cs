@@ -42,7 +42,8 @@ public class BossHealth : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject, 5.0f);
-        GameManager.playerScore += 1000;
+        GameManager.playerScore += 5000;
+        BossLevelSpawner.zombiesCanSpawn = false;
+        GameManager.bossIsDeath = true;
     }
 }
