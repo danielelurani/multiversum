@@ -12,6 +12,7 @@ TagManager:
   - Boss
   - Rock
   - Floor
+  - MenuMusic
   layers:
   - Default
   - TransparentFX

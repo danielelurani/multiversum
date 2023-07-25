@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-       Application.Quit();
+        Destroy(GameObject.Find("Music"));
+        Application.Quit();
     }
 }
