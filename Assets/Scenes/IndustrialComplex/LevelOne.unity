@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0014785795, g: 0.0013591028, b: 0.0012890887, a: 1}
+  m_IndirectSpecularColor: {r: 0.0014833048, g: 0.0013571114, b: 0.0012931153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18047,20 +18047,8 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1978007105}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  m_IsOn: 1
+      m_Calls: []
+  m_IsOn: 0
 --- !u!1 &411858601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 2e3c4654a7de08a478c4d20a7723146b, type: 3}
@@ -29270,7 +29258,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1001 &625609682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63523,8 +63511,20 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 1599284283}
+        m_TargetAssemblyTypeName: Cheats, Assembly-CSharp
+        m_MethodName: ActiveImmortality
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &1312735060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 199860, guid: 0dd137872bec6e04aaaaa2b3e9f3c5a7, type: 3}
@@ -76782,6 +76782,7 @@ GameObject:
   - component: {fileID: 1599284280}
   - component: {fileID: 1599284279}
   - component: {fileID: 1599284278}
+  - component: {fileID: 1599284283}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -76894,6 +76895,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1599284283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599284277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776b4333e8c28d24195a79b8f80bb8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1600989647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 185700, guid: 28b84caef8a775346bad0707768b08d0, type: 3}
