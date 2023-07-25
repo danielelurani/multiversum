@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 500f;
-    [SerializeField] private float currentHealth;
+    [SerializeField] public float maxHealth = 500f;
+    [SerializeField] public float currentHealth;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;

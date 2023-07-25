@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZRHealth : MonoBehaviour
 {
 
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth;
 
     private float random;
