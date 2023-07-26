@@ -27,6 +27,17 @@ public class RockScript : MonoBehaviour
 
     }
 
-   
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+           
+            Destroy(gameObject);
+        }
+    }
+
+
+
 
 }
