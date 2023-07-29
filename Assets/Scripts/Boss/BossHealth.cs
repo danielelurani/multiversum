@@ -13,8 +13,8 @@ public class BossHealth : MonoBehaviour
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
 
-    private GameObject bossHealth;
-    public BossHealthBar bossHealthBar;
+    private GameObject bossHealthBar;
+    public BossHealthBar bossHealthBarScript;
 
     // Start is called before the first frame update
     void Start()
@@ -22,77 +22,69 @@ public class BossHealth : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        bossHealth = GameObject.Find("BossHealthBar");
-
-       
-        
+        bossHealthBar = GameObject.Find("BossHealthBar");
+        bossHealthBarScript = bossHealthBar.GetComponent<BossHealthBar>();
+        bossHealthBarScript.SetMaxHealth(maxHealth);
     }
 
-        public void TakeDamage(float amount)
+    void Update()
+    {
+        bossHealthBarScript.SetHealth(currentHealth);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 250 && !animator.GetBool("FirstPhaseEnding"))
         {
-
-            currentHealth -= amount;
-
-            if (currentHealth <= 250 && !animator.GetBool("FirstPhaseEnding"))
-            {
-                animator.SetBool("FirstPhaseEnding", true);
-                agent.speed = 0.0f;
-
-                StartCoroutine(StartSecondPhase());
-
-            }
-
-
-            if (currentHealth <= 0.0f)
-            {
-
-                if (!animator.GetBool("isDead"))
-                    Die();
-
-                animator.SetBool("isDead", true);
-                agent.speed = 0.0f;
-            }
-        }
-
-        private IEnumerator StartSecondPhase()
-        {
-            yield return new WaitForSeconds(1f);
+            animator.SetBool("FirstPhaseEnding", true);
             agent.speed = 0.0f;
-            animator.SetBool("SecondPhase", true);
 
-
-        }
-
-        public void Die()
-        {
-            GameManager.playerScore += 5000;
-            BossLevelSpawner.zombiesCanSpawn = false;
-            GameManager.bossIsDeath = true;
+            StartCoroutine(StartSecondPhase());
         }
 
 
-
-        void Update()
+        if (currentHealth <= 0.0f)
         {
 
+            if (!animator.GetBool("isDead"))
+                Die();
 
-            bossHealthBar.SetHealth(currentHealth);
+            animator.SetBool("isDead", true);
+            agent.speed = 0.0f;
         }
+    }
 
-        public void CheckHealth()
+    private IEnumerator StartSecondPhase()
+    {
+        yield return new WaitForSeconds(1f);
+        agent.speed = 0.0f;
+        animator.SetBool("SecondPhase", true);
+
+
+    }
+
+    public void Die()
+    {
+        GameManager.playerScore += 5000;
+        BossLevelSpawner.zombiesCanSpawn = false;
+        GameManager.bossIsDeath = true;
+    }
+
+    public void CheckHealth()
+    {
+        if (currentHealth <= 0)
         {
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-                isDead = true;
+            currentHealth = 0;
+            isDead = true;
 
-            }
-
-            if (currentHealth >= maxHealth)
-            {
-                currentHealth = maxHealth;
-            }
         }
 
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
 }
 
