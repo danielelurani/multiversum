@@ -50,13 +50,13 @@ public class Pistol : MonoBehaviour
             float nextTimeToShoot = 1 / fireRate;
 
             // azione di sparo
-            if(time >= nextTimeToShoot && Input.GetButtonDown("Fire1") && currentBullets > 0){
+            if(time >= nextTimeToShoot && (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.JoystickButton5)) && currentBullets > 0){
                 Shoot();
                 time = 0.0f;
             }
 
             //azione di ricarica
-            if(Input.GetKeyDown(KeyCode.R) && currentBullets < magazine && currentAmmo > 0){
+            if((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.JoystickButton4)) && currentBullets < magazine && currentAmmo > 0){
                 Reload();
 
                 // dopo che si preme il tasto "ricarica", bisogna aspettare che sia finita la ricarica prima di sparare ancora

@@ -24,6 +24,8 @@ public class PlayerMotor : MonoBehaviour
     void Update(){
         
         isGrounded = controller.isGrounded;
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && !PauseMenu.isGamePaused)
+            Jump();
     }
 
     // Riceve gli input dal InputManager e li applica al player controller
@@ -48,6 +50,5 @@ public class PlayerMotor : MonoBehaviour
         if(isGrounded){
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-
     }
 }

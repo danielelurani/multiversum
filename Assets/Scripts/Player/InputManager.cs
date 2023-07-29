@@ -22,8 +22,6 @@ public class InputManager : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
 
-        // Evento che si attiva ogni volta che viene usato jump
-        onFoot.Jump.performed += ctx => motor.Jump();
     }
 
     void FixedUpdate(){

@@ -53,6 +53,33 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c1a4af7-95b4-4eaa-86f1-0b6c91812f5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Recharge"",
+                    ""type"": ""Button"",
+                    ""id"": ""19bbb1e8-8405-4525-bece-a73024ca5d19"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5adb4da6-b8c3-4873-aa0f-c2fb8a4966dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -204,9 +231,42 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""5c4b17b9-9d93-4e1a-bdf7-8ca518c644b2"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=20,y=20)"",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b518d70-f722-4caf-9ae2-6e77352fdefa"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82d4f551-1ae4-4a49-a33d-f3fee447fe29"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Recharge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""290a0285-bf64-491d-aaf9-ac3a5ec6767f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -220,6 +280,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
         m_OnFoot_Jump = m_OnFoot.FindAction("Jump", throwIfNotFound: true);
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
+        m_OnFoot_Shoot = m_OnFoot.FindAction("Shoot", throwIfNotFound: true);
+        m_OnFoot_Recharge = m_OnFoot.FindAction("Recharge", throwIfNotFound: true);
+        m_OnFoot_Pick = m_OnFoot.FindAction("Pick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +347,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Movement;
     private readonly InputAction m_OnFoot_Jump;
     private readonly InputAction m_OnFoot_Look;
+    private readonly InputAction m_OnFoot_Shoot;
+    private readonly InputAction m_OnFoot_Recharge;
+    private readonly InputAction m_OnFoot_Pick;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -291,6 +357,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
         public InputAction @Jump => m_Wrapper.m_OnFoot_Jump;
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
+        public InputAction @Shoot => m_Wrapper.m_OnFoot_Shoot;
+        public InputAction @Recharge => m_Wrapper.m_OnFoot_Recharge;
+        public InputAction @Pick => m_Wrapper.m_OnFoot_Pick;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +378,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Recharge.started += instance.OnRecharge;
+            @Recharge.performed += instance.OnRecharge;
+            @Recharge.canceled += instance.OnRecharge;
+            @Pick.started += instance.OnPick;
+            @Pick.performed += instance.OnPick;
+            @Pick.canceled += instance.OnPick;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -322,6 +400,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Recharge.started -= instance.OnRecharge;
+            @Recharge.performed -= instance.OnRecharge;
+            @Recharge.canceled -= instance.OnRecharge;
+            @Pick.started -= instance.OnPick;
+            @Pick.performed -= instance.OnPick;
+            @Pick.canceled -= instance.OnPick;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -344,5 +431,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnRecharge(InputAction.CallbackContext context);
+        void OnPick(InputAction.CallbackContext context);
     }
 }

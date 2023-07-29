@@ -47,7 +47,7 @@ public class Rifle : MonoBehaviour
         float nextTimeToShoot = 1 / fireRate;
 
         // azione di sparo
-        if(time >= nextTimeToShoot && Input.GetButton("Fire1") && currentBullets > 0 && !PauseMenu.isGamePaused){
+        if(time >= nextTimeToShoot && Input.GetKeyDown(KeyCode.Mouse0) && currentBullets > 0 && !PauseMenu.isGamePaused){
             Shoot();
             time = 0.0f;
         }

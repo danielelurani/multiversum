@@ -72,7 +72,7 @@ public class PistolPickUp : MonoBehaviour
             // se ho abbastanza punti
             if(GameManager.playerScore >= ammoCost){
 
-                if(Input.GetKeyDown(KeyCode.E)){
+                if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)){
                     RefillAmmo();
                 }
 
