@@ -5,18 +5,29 @@ using UnityEngine.UI;
 
 public class PlayerLook : MonoBehaviour
 {
-    
     public Camera cam;
+    [SerializeField] Slider sensitivitySlider;
 
     private float xRotation = 0f;
 
     // Sensibilità visuale orizontale e verticale
-    public float xSensitivity = 15f;
-    public float ySensitivity = 15f;
+    public float xSensitivity;
+    public float ySensitivity;
+
+    void Start() 
+    {
+        if (!PlayerPrefs.HasKey("sensitivty"))
+        {
+            PlayerPrefs.SetFloat("sensitivty", 10f);
+            xSensitivity = sensitivitySlider.value;
+            ySensitivity = sensitivitySlider.value;
+        }
+        else
+            Load();
+    }
 
     public void ProcessLook(Vector2 input)
     {
-
         float mouseX = input.x;
         float mouseY = input.y;
 
@@ -31,5 +42,22 @@ public class PlayerLook : MonoBehaviour
         transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
     }
 
-   
+    public void ChangeSensitivity(){
+
+        xSensitivity = sensitivitySlider.value;
+        ySensitivity = sensitivitySlider.value;
+        Save();
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("sensitivity", sensitivitySlider.value);
+    }
+
+    private void Load()
+    {
+        sensitivitySlider.value = PlayerPrefs.GetFloat("sensitivity");
+        xSensitivity = sensitivitySlider.value;
+        ySensitivity = sensitivitySlider.value;
+    }
 }
