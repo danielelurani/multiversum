@@ -23,11 +23,15 @@ public class BossHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-        if (currentHealth <= 250)
+        if (currentHealth <= 250 && !animator.GetBool("FirstPhaseEnding"))
         { 
-            animator.SetBool("SecondPhase", true);
-            agent.speed = 3.5f;
+            animator.SetBool("FirstPhaseEnding", true);
+            agent.speed = 0.0f;
+
+            StartCoroutine(StartSecondPhase());
+            
         }
+        
 
         if (currentHealth <= 0.0f)
         {
@@ -38,6 +42,15 @@ public class BossHealth : MonoBehaviour
             animator.SetBool("isDead", true);
             agent.speed = 0.0f;
         }
+    }
+
+    private IEnumerator StartSecondPhase()
+    {
+        yield return new WaitForSeconds(1f);
+        agent.speed = 0.0f;
+        animator.SetBool("SecondPhase", true);
+        
+      
     }
 
     public void Die()
