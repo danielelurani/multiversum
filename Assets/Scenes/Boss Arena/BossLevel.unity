@@ -39006,6 +39006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 488683567}
+  sensitivitySlider: {fileID: 0}
   xSensitivity: 15
   ySensitivity: 15
 --- !u!114 &1797213112
