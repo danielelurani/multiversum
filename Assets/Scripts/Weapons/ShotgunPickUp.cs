@@ -49,7 +49,7 @@ public class ShotgunPickUp : MonoBehaviour
             // se ho abbastanza punti
             if(GameManager.playerScore >= cost){
 
-                if(Input.GetKeyDown(KeyCode.E)){
+                if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)){
 
                     PickUp();
                 }
@@ -73,7 +73,7 @@ public class ShotgunPickUp : MonoBehaviour
             // se ho abbastanza punti
             if(GameManager.playerScore >= ammoCost){
 
-                if(Input.GetKeyDown(KeyCode.E)){
+                if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)){
                     RefillAmmo();
                 }
 
@@ -96,6 +96,7 @@ public class ShotgunPickUp : MonoBehaviour
         if(equip.numberOfSlotActive == 1){
 
             equip.Slot3(true);
+            equip.Equip3();
             equip.numberOfSlotActive = 2;
             GameManager.playerScore -= cost;
         }

@@ -38,7 +38,39 @@ public class EquippingScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        // comandi cambio arma con gamepad
+        if(Input.GetKeyDown(KeyCode.JoystickButton3)){
+
+
+            switch (slotEquippedATM)
+            {
+                case 1:
+                    if(isSlot2Active)
+                        Equip2();
+
+                    if(isSlot3Active)
+                        Equip3();
+                    break;
+                case 2:
+                    if(isSlot1Active)
+                        Equip1();
+
+                    if(isSlot3Active)
+                        Equip3();
+                    break;
+                case 3:
+                    if(isSlot1Active)
+                        Equip1();
+
+                    if(isSlot2Active)
+                        Equip2();
+                break;
+                default: break;
+            }
+        }
+
+        //comandi cambio arma con tastiera
         if(Input.GetKeyDown("1") && isSlot1Active){
             Equip1();
         }

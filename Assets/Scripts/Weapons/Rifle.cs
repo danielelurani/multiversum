@@ -47,13 +47,13 @@ public class Rifle : MonoBehaviour
         float nextTimeToShoot = 1 / fireRate;
 
         // azione di sparo
-        if(time >= nextTimeToShoot && Input.GetKeyDown(KeyCode.Mouse0) && currentBullets > 0 && !PauseMenu.isGamePaused){
+        if(time >= nextTimeToShoot && (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.JoystickButton5)) && currentBullets > 0 && !PauseMenu.isGamePaused){
             Shoot();
             time = 0.0f;
         }
 
         //azione di ricarica
-        if(Input.GetKeyDown(KeyCode.R) && currentBullets < magazine && currentAmmo > 0){
+        if((Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.JoystickButton4)) && currentBullets < magazine && currentAmmo > 0){
             
             Reload();
 

@@ -48,7 +48,7 @@ public class PistolPickUp : MonoBehaviour
             // se ho abbastanza punti
             if(GameManager.playerScore >= cost){
 
-                if(Input.GetKeyDown(KeyCode.E)){
+                if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton2)){
 
                     PickUp();
                 }

@@ -67677,7 +67677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7125589774974728447, guid: 9f50fdb071f54674f8166b46f510ad84, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 77.60003
+      value: 77.246
       objectReference: {fileID: 0}
     - target: {fileID: 7125589774974728447, guid: 9f50fdb071f54674f8166b46f510ad84, type: 3}
       propertyPath: m_LocalPosition.z
@@ -82129,7 +82129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717937074}
   m_LocalRotation: {x: 0.86602443, y: -0, z: -0, w: 0.5000018}
-  m_LocalPosition: {x: -227.81154, y: 76.43603, z: -184.18866}
+  m_LocalPosition: {x: -227.81154, y: 76.082, z: -184.18866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -93695,7 +93695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1268591459}
-  gameScore: 5000
+  gameScore: 10000
   gameWave: 0
 --- !u!4 &1976121627
 Transform:
@@ -101994,6 +101994,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 898715458, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898715459, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 898715460, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
       propertyPath: fpsCamera
       value: 
@@ -102079,6 +102087,14 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 2126074960}
+    - target: {fileID: 1447392415, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447392416, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1894198601, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -102156,6 +102172,14 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 2126074960}
+    - target: {fileID: 38431688, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38431690, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 857672824, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
       propertyPath: m_Layer
       value: 2
