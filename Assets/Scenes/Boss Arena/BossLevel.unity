@@ -24218,6 +24218,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 898715458, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898715459, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 898715460, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
       propertyPath: fpsCamera
       value: 
@@ -25313,7 +25321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192864424}
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 26.9, y: 2.9534187, z: 28.310015}
+  m_LocalPosition: {x: 34.816, y: 2.206, z: 21.822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27222,6 +27230,14 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 488683567}
+    - target: {fileID: 1447392415, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447392416, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1894198601, guid: 51de85e762489df4eaec1900f0881a21, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -27346,7 +27362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Price = 4000 \t\t  Ammo = 1000"
+  m_text: "Price = 3000 \t\t  Ammo = 1000"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27815,8 +27831,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326130016}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0.24644163, y: 2.789, z: -6.87}
+  m_LocalRotation: {x: -0, y: 0.98938435, z: -0, w: -0.14532268}
+  m_LocalPosition: {x: 10.007, y: 2.389, z: 10.282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27824,7 +27840,7 @@ Transform:
   - {fileID: 610068011}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 196.712, z: 0}
 --- !u!1 &1327406437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4261907992718082698, guid: e654b65ecb21d204388c7b5216b098bd, type: 3}
@@ -41916,7 +41932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1538954455}
-  gameScore: 10000
+  gameScore: 0
   gameWave: 0
   spawnEffect: {fileID: 1281923969}
 --- !u!1001 &1846183241
@@ -44168,6 +44184,14 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 488683567}
+    - target: {fileID: 38431688, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 38431690, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 857672824, guid: eec1dfd09db3ce647a54d6e018c8ffb0, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -44370,8 +44394,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944867393}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -27.4, y: 2.9534187, z: 28.309984}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: -28.872, y: 2.9534187, z: 29.816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44379,7 +44403,7 @@ Transform:
   - {fileID: 970701757}
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1945906936
 PrefabInstance:
   m_ObjectHideFlags: 0

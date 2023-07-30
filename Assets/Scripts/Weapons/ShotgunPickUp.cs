@@ -12,7 +12,7 @@ public class ShotgunPickUp : MonoBehaviour
     private GameObject insufficentScore;
     private GameObject buyAmmoText;
 
-    private int cost = 4000;
+    private int cost = 3000;
     private int ammoCost = 1000;
 
     [SerializeField] private float pickUpRange = 2f;
