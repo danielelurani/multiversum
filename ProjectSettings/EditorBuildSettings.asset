@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tunnel/Tunnel.unity
     guid: df874e8c26ddea74e9df721ce9314df0
+  - enabled: 1
+    path: Assets/Scenes/Island/LevelTwo.unity
+    guid: 7d48fcd816f351e43b9bc2537a817312
   m_configObjects: {}
