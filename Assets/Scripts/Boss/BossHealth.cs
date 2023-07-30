@@ -10,6 +10,8 @@ public class BossHealth : MonoBehaviour
     [SerializeField] public float currentHealth;
     [SerializeField] protected bool isDead;
     [SerializeField] private GameObject bossFire;
+    [SerializeField] private AudioSource bossScream;
+    [SerializeField] private GameObject bossSound;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -59,9 +61,10 @@ public class BossHealth : MonoBehaviour
 
     private IEnumerator StartSecondPhase()
     {
+        bossScream.Play();
         yield return new WaitForSeconds(1f);
         animator.SetBool("SecondPhase", true);
-        agent.speed = 3.5f;
+        agent.speed = 5f;
         bossFire.SetActive(true);
     }
 
@@ -70,6 +73,8 @@ public class BossHealth : MonoBehaviour
         GameManager.playerScore += 5000;
         BossLevelSpawner.zombiesCanSpawn = false;
         GameManager.bossIsDeath = true;
+        bossSound.SetActive(false);
+        bossHealthBar.SetActive(false);
     }
 
     public void CheckHealth()
@@ -78,7 +83,6 @@ public class BossHealth : MonoBehaviour
         {
             currentHealth = 0;
             isDead = true;
-
         }
 
         if (currentHealth >= maxHealth)

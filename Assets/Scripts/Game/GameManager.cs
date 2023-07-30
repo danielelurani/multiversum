@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private int gameScore = 0;
     [SerializeField] private int gameWave = 0;
+    [SerializeField] private GameObject spawnEffect;
 
     private GameObject wavesTimerTextObject;
     private Text wavesTimerText;
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour
                     yield return new WaitForSeconds(1f);            
                     wavesTimerText.text = "Boss wave starts in " + i + " second ...";
                     wavesTimerTextObject.SetActive(true);
+                    spawnEffect.SetActive(true);
                 } else
                 {
                     yield return new WaitForSeconds(1f);            
@@ -220,14 +222,14 @@ public class GameManager : MonoBehaviour
             winFadeImage = winCanvas.GetComponent<Image>();
             imageAlpha = winFadeImage.color;
 
-            while(imageAlpha.a <= 5){
+            while(imageAlpha.a <= 2){
 
                 yield return new WaitForSeconds(1f);
                 imageAlpha.a = imageAlpha.a + 0.001f;
                 winFadeImage.color = imageAlpha;
             }
 
-            SceneManager.LoadScene("GameOverScene");
+            SceneManager.LoadScene("WinScene");
 
         } else {
 

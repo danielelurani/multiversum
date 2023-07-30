@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class BossNavMesh : MonoBehaviour
 {
+
+    [SerializeField] private AudioSource bossSound;
     public NavMeshAgent navMeshAgent;
     private GameObject player;
     
@@ -14,6 +16,8 @@ public class BossNavMesh : MonoBehaviour
     private float timer = 0.0f;
     private float interval = 1f;
     public float launchTimer = 0.0f;
+    private float random;
+    private bool isAudioPlaying = false;
 
   
     
@@ -22,9 +26,7 @@ public class BossNavMesh : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player");
-
-        
-
+        StartCoroutine(BossSound());
     }
   
     // Update is called once per frame
@@ -45,11 +47,12 @@ public class BossNavMesh : MonoBehaviour
 
        
         if(animator.GetBool("SecondPhase")) {
-            navMeshAgent.speed = 3.5f;
+            navMeshAgent.speed = 5.0f;
         }
-       
-        
 
+        if (animator.GetBool("isDead"))
+            navMeshAgent.speed = 0.0f;
+       
         if (distance <= 2.0f)
         {
             AttackPlayer();
@@ -61,7 +64,7 @@ public class BossNavMesh : MonoBehaviour
         if(launchTimer >= 10f && animator.GetBool("SecondPhase") && distance >= 5f)
             ThrowObject();
 
-
+        random = Random.Range(2,5);
     }
 
     private void AttackPlayer()
@@ -98,10 +101,26 @@ public class BossNavMesh : MonoBehaviour
 
             animator.SetBool("Throw", true);
         }
+    }
 
-        //launchTimer = 0f;
-        //animator.SetBool("Throw", false);
-        //navMeshAgent.speed = 3.5f;
+    private IEnumerator BossSound(){
+
+        while(true){
+
+            yield return new WaitForSeconds(random);
+
+            if (!isAudioPlaying)
+            {
+                bossSound.Play();
+                isAudioPlaying = true;
+            }
+            else if (isAudioPlaying)
+            {
+                isAudioPlaying = false;
+            }
+
+            yield return new WaitForSeconds(random);
+        }
     }
 }
 

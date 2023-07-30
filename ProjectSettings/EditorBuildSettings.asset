@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Island/LevelTwo.unity
     guid: 7d48fcd816f351e43b9bc2537a817312
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 30fc44b0f952ea84985b0ce3ae0c7f8a
   m_configObjects: {}
