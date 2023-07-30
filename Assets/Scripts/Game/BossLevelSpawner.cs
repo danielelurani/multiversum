@@ -6,6 +6,7 @@ public class BossLevelSpawner : MonoBehaviour
 {
     public static bool zombiesCanSpawn;
 
+    [SerializeField] private GameObject bossHealthbar;
     [SerializeField] private GameObject zombieWalker;
     [SerializeField] private GameObject zombieRunner;
     [SerializeField] private GameObject zombieTank;
@@ -54,6 +55,7 @@ public class BossLevelSpawner : MonoBehaviour
     private void spawnBoss(GameObject enemyType){
 
         GameObject newEnemy = Instantiate(enemyType, bossSpwn.transform.position, Quaternion.identity);
+        bossHealthbar.SetActive(true);
     }
 
     private IEnumerator spawnZW(float interval, GameObject enemyType){

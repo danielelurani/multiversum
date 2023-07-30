@@ -9,6 +9,7 @@ public class BossHealth : MonoBehaviour
     [SerializeField] public float maxHealth = 500f;
     [SerializeField] public float currentHealth;
     [SerializeField] protected bool isDead;
+    [SerializeField] private GameObject bossFire;
 
     private Animator animator;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -61,9 +62,7 @@ public class BossHealth : MonoBehaviour
         yield return new WaitForSeconds(1f);
         animator.SetBool("SecondPhase", true);
         agent.speed = 3.5f;
-        
-
-
+        bossFire.SetActive(true);
     }
 
     public void Die()

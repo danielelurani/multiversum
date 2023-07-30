@@ -2512,6 +2512,7 @@ MonoBehaviour:
   maxHealth: 500
   currentHealth: 0
   isDead: 0
+  bossFire: {fileID: 1003735111337726868}
   bossHealthBarScript: {fileID: 0}
 --- !u!114 &8687962057034052240
 MonoBehaviour:
@@ -2833,6 +2834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WildFire
       objectReference: {fileID: 0}
+    - target: {fileID: 1956197547661106, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4288416149911810, guid: f293a2dcc753a4a489fefe7f8f312d69, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2954,3 +2959,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be71f707dca14a4ca54c1e18cb056fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
