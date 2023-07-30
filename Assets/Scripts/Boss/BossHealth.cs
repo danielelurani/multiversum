@@ -36,7 +36,7 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (currentHealth <= 250 && !animator.GetBool("FirstPhaseEnding"))
+        if (currentHealth <= 250 && !animator.GetBool("SecondPhase"))
         {
             animator.SetBool("FirstPhaseEnding", true);
             agent.speed = 0.0f;
@@ -59,8 +59,9 @@ public class BossHealth : MonoBehaviour
     private IEnumerator StartSecondPhase()
     {
         yield return new WaitForSeconds(1f);
-        agent.speed = 0.0f;
         animator.SetBool("SecondPhase", true);
+        agent.speed = 3.5f;
+        
 
 
     }

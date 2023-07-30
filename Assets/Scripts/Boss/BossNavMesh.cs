@@ -43,10 +43,11 @@ public class BossNavMesh : MonoBehaviour
 
         distance = Vector3.Distance(player.transform.position, transform.position);
 
-        
+       
         if(animator.GetBool("SecondPhase")) {
             navMeshAgent.speed = 3.5f;
         }
+       
         
 
         if (distance <= 2.0f)
