@@ -1634,8 +1634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b71fd3890a976d4194892576c44040d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 80
-  collisionRadius: 0.3
+  damage: 90
+  collisionRadius: 1.5
   shiftDistance: 2
   shiftDuration: 0.5
   shiftDirection: {x: 0, y: 0, z: -1}

@@ -53,7 +53,7 @@ public class BossNavMesh : MonoBehaviour
         if (animator.GetBool("isDead"))
             navMeshAgent.speed = 0.0f;
        
-        if (distance <= 2.0f)
+        if (distance <= 3.0f)
         {
             AttackPlayer();
         }

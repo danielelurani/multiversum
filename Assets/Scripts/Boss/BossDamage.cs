@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossDamage : MonoBehaviour
 {
     [SerializeField] private int damage = 90;
-    [SerializeField] private float collisionRadius = 0.3f;
+    [SerializeField] private float collisionRadius = 0.5f;
 
     private GameObject player;
     private CharacterStats playerStats;
