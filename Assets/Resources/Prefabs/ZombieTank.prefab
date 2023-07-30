@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50fd4caf855a7a498bd5671bfe94d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 80
+  damage: 50
   collisionRadius: 0.3
 --- !u!1 &4223968107834490043
 GameObject:
