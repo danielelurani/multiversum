@@ -11,16 +11,14 @@ public class PlayerLook : MonoBehaviour
     private float xRotation = 0f;
 
     // Sensibilità visuale orizontale e verticale
-    public float xSensitivity;
-    public float ySensitivity;
+    public float xSensitivity = 10f;
+    public float ySensitivity = 10f;
 
     void Start() 
     {
         if (!PlayerPrefs.HasKey("sensitivty"))
         {
             PlayerPrefs.SetFloat("sensitivty", 10f);
-            xSensitivity = sensitivitySlider.value;
-            ySensitivity = sensitivitySlider.value;
         }
         else
             Load();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZTDamage : MonoBehaviour
 {
-    [SerializeField] private int damage = 80;
+    [SerializeField] private int damage = 50;
     [SerializeField] private float collisionRadius = 0.3f;
 
     private GameObject player;
