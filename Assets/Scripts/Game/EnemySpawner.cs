@@ -46,6 +46,9 @@ public class EnemySpawner : MonoBehaviour
         zombiesToSpawn = 0;
         spawnedZombies = 0;
 
+        zombieRunnerCount = 0;
+        zombieWalkerCount = 0;
+        zombieTankCount = 0;
     }
 
     void Update() {
@@ -86,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
             if(random == 4){
                 GameObject newEnemy = Instantiate(enemyType, spwn4.transform.position, Quaternion.identity);
             }
-                
+            
             spawnedZombies++;
             zombieWalkerCount ++;
             GameManager.zombiesAlive ++;
