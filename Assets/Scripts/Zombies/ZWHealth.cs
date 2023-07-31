@@ -80,7 +80,7 @@ public class ZWHealth : MonoBehaviour
             Vector3 position = transform.position;
             position.y += 0.5f;
             Vector3 newPosition = position;
-            GameObject powerUp = Instantiate(health, newPosition, Quaternion.identity);
+            GameObject powerUp = Instantiate(instantKill, newPosition, Quaternion.identity);
         }
     }
 }

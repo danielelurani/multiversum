@@ -33955,7 +33955,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to buy ammo
+  m_Text: Press "E" or "X" to buy ammo
 --- !u!222 &718663325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45288,7 +45288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to equip
+  m_Text: Press "E" or "X" to equip
 --- !u!222 &902595227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48966,7 +48966,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to buy ammo
+  m_Text: Press "E" or "X" to buy ammo
 --- !u!222 &1002699696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59798,7 +59798,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to equip
+  m_Text: Press "E" or "X" to equip
 --- !u!222 &1232662325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -78358,7 +78358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to buy ammo
+  m_Text: Press "E" or "X" to buy ammo
 --- !u!222 &1634005220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -98227,7 +98227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "E" to equip
+  m_Text: Press "E" or "X" to equip
 --- !u!222 &2072672203
 CanvasRenderer:
   m_ObjectHideFlags: 0
