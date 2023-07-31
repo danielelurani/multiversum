@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
                 EnemySpawner.spawnedZombies = 0;
                 currentWave++;
 
-                if(currentWave !=1 && currentWave < 6)
+                if(currentWave < 6)
                     smScript.SaveData();
 
                 StartCoroutine(UpdateWavesTimerText());

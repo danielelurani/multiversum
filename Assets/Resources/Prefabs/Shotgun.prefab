@@ -4926,7 +4926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 190946, guid: 0ea431ea42fab2c4eb57169868840585, type: 3}
       propertyPath: m_Name
-      value: Shotgun Variant
+      value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 190946, guid: 0ea431ea42fab2c4eb57169868840585, type: 3}
       propertyPath: m_Layer
@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6052a8962a7d44a41a752676bc9ee26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   range: 100
   fireRate: 6
   magazine: 8
@@ -5220,6 +5220,7 @@ MonoBehaviour:
   maxAmmo: 160
   currentAmmo: 80
   spread: 0.025
+  bulletPieces: 8
   muzzle: {fileID: 236712774}
   fpsCamera: {fileID: 0}
   muzzleFlash: {fileID: 2049332487}

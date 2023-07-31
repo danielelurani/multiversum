@@ -4,7 +4,7 @@ public class Pistol : MonoBehaviour
 {
 
     // variabili per caratteristiche della pistola
-    [SerializeField] private float damage = 10f;
+    [SerializeField] private float damage = 25f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 4f;
     [SerializeField] public int magazine = 12;

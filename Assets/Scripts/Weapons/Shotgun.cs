@@ -4,7 +4,7 @@ public class Shotgun : MonoBehaviour
 {
 
     // variabili per caratteristiche del fucile a pompa
-    [SerializeField] private float damage = 7.5f;
+    [SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 6f;
     [SerializeField] public int magazine = 8;

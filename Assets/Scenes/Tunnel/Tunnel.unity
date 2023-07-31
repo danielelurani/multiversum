@@ -13464,7 +13464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898715460, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
       propertyPath: damage
-      value: 7.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 898715460, guid: 7f03e2c8c6662254c8004e97d5ab8fe5, type: 3}
       propertyPath: fpsCamera
