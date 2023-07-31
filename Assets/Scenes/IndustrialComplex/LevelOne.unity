@@ -93733,8 +93733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCanvas: {fileID: 1268591459}
-  gameScore: 0
-  gameWave: 0
+  gameScore: 10000
+  gameWave: 4
   spawnEffect: {fileID: 0}
 --- !u!4 &1976121627
 Transform:

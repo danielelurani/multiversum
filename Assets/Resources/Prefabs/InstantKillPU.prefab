@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2710376671227029141}
   - component: {fileID: 2710376671227029129}
   - component: {fileID: 2710376671227029128}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: InstantKillPU
   m_TagString: InstantKill
   m_Icon: {fileID: 0}

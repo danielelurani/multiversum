@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8795008873598021745}
   - component: {fileID: 8795008873598021748}
   - component: {fileID: 8795008873598021749}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: MaxAmmoPU
   m_TagString: Ammo
   m_Icon: {fileID: 0}
