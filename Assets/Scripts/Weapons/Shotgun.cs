@@ -43,6 +43,9 @@ public class Shotgun : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
+        if(currentAmmo < 0)
+            currentAmmo = 0;
+
         time += Time.deltaTime;
 
         float nextTimeToShoot = 1 / fireRate;
@@ -140,16 +143,15 @@ public class Shotgun : MonoBehaviour
         // triggera animazione
         animator.SetTrigger("RPressed");
 
-        if(currentAmmo < magazine){
-
-            currentAmmo = currentAmmo - (magazine - currentBullets);
-            currentBullets = currentBullets + (magazine - currentBullets);
-        }
-        else{
-
-            currentAmmo = currentAmmo - ( magazine - currentBullets);
-            currentBullets = currentBullets + (magazine - currentBullets);
-        }
+        if(currentAmmo < (magazine - currentBullets)){
+                
+                currentBullets += currentAmmo;
+                currentAmmo = 0;
+            }
+            else{
+                currentAmmo = currentAmmo - (magazine - currentBullets);
+                currentBullets = currentBullets + (magazine - currentBullets);
+            }
     }
 
     public float GetDamageValue(){ return damage;}

@@ -137,8 +137,15 @@ public class Rifle : MonoBehaviour
 
         if(currentAmmo < magazine){
 
-            currentAmmo = currentAmmo - (magazine - currentBullets);
-            currentBullets = currentBullets + (magazine - currentBullets);
+            if(currentAmmo < (magazine - currentBullets)){
+                
+                currentBullets += currentAmmo;
+                currentAmmo = 0;
+            }
+            else{
+                currentAmmo = currentAmmo - (magazine - currentBullets);
+                currentBullets = currentBullets + (magazine - currentBullets);
+            }
         }
         else{
 

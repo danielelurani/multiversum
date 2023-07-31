@@ -43,6 +43,9 @@ public class Pistol : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
+        if(currentAmmo < 0)
+            currentAmmo = 0;
+
         if(!PauseMenu.isGamePaused){
 
             time += Time.deltaTime;
@@ -141,9 +144,16 @@ public class Pistol : MonoBehaviour
         animator.SetTrigger("RPressed");
 
         if(currentAmmo < magazine){
-
-            currentAmmo = currentAmmo - (magazine - currentBullets);
-            currentBullets = currentBullets + (magazine - currentBullets);
+            
+            if(currentAmmo < (magazine - currentBullets)){
+                
+                currentBullets += currentAmmo;
+                currentAmmo = 0;
+            }
+            else{
+                currentAmmo = currentAmmo - (magazine - currentBullets);
+                currentBullets = currentBullets + (magazine - currentBullets);
+            }
         }
         else{
 
