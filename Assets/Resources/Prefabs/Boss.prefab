@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56ee765d42273f45af30582fc2a6fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2000
+  maxHealth: 10000
   currentHealth: 0
   isDead: 0
   bossFire: {fileID: 1003735111337726868}

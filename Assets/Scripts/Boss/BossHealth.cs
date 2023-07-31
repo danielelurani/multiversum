@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class BossHealth : MonoBehaviour
 {
-    [SerializeField] public float maxHealth = 1000f;
+    [SerializeField] public float maxHealth = 10000f;
     [SerializeField] public float currentHealth;
     [SerializeField] protected bool isDead;
     [SerializeField] private GameObject bossFire;
@@ -39,7 +39,7 @@ public class BossHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (currentHealth <= 500 && !animator.GetBool("SecondPhase"))
+        if (currentHealth <= 5000f && !animator.GetBool("SecondPhase"))
         {
             animator.SetBool("FirstPhaseEnding", true);
             agent.speed = 0.0f;

@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "BossLevel"){
 
+            gameScore = 3000;
             bossIsDeath = false;
             playerScore = gameScore;
             zombiesAlive = 0;
